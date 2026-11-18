@@ -1,0 +1,27 @@
+{
+  "name": "Bodega Bota Chica",
+  "short_name": "Bota Chica",
+  "description": "Web de demostración de una bodega ficticia de vino de Jerez.",
+  "lang": "es",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#e4e2dd",
+  "theme_color": "#7d0c14",
+  "icons": [
+    {
+      "src": "/assets/favicon-32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

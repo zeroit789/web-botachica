@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- sitemap.xml: páginas de la web de demostración de Bodega Bota Chica / pages of the Bodega Bota Chica demo site -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://botachica.danimefle.com/</loc><lastmod>2026-11-18</lastmod></url>
+  <url><loc>https://botachica.danimefle.com/vinos.html</loc><lastmod>2026-11-18</lastmod></url>
+  <url><loc>https://botachica.danimefle.com/visitas.html</loc><lastmod>2026-11-18</lastmod></url>
+  <url><loc>https://botachica.danimefle.com/sobre-nosotros.html</loc><lastmod>2026-11-18</lastmod></url>
+  <url><loc>https://botachica.danimefle.com/contacto.html</loc><lastmod>2026-11-18</lastmod></url>
+  <url><loc>https://botachica.danimefle.com/creditos.html</loc><lastmod>2026-11-18</lastmod></url>
+  <url><loc>https://botachica.danimefle.com/aviso-legal.html</loc><lastmod>2026-11-18</lastmod></url>
+  <url><loc>https://botachica.danimefle.com/privacidad.html</loc><lastmod>2026-11-18</lastmod></url>
+  <url><loc>https://botachica.danimefle.com/cookies.html</loc><lastmod>2026-11-18</lastmod></url>
+</urlset>

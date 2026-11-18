@@ -1,0 +1,171 @@
+<!doctype html>
+<!--
+  sobre-nosotros.html: Sobre nosotros · Bodega Bota Chica
+  Web de demostración de una bodega ficticia de vino de Jerez. HTML, CSS y JS en ficheros propios (la CSP no deja código en línea).
+  Demo website for a fictional sherry bodega. HTML, CSS and JS in their own files (the CSP forbids inline code).
+-->
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sobre nosotros · Bodega Bota Chica</title>
+  <meta name="description" content="La historia de Bodega Bota Chica desde 1931, la nave del barrio de Santiago, la uva de Macharnudo, quién hace cada oficio y lo que no cambiamos.">
+  <!-- Marca ficticia: no debe salir en buscadores / Fictional brand: keep it out of search engines -->
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://botachica.danimefle.com/sobre-nosotros.html">
+  <meta name="theme-color" content="#e4e2dd">
+  <!-- Open Graph y Twitter / Open Graph and Twitter -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:site_name" content="Bodega Bota Chica">
+  <meta property="og:title" content="Sobre nosotros · Bodega Bota Chica">
+  <meta property="og:description" content="La historia de Bodega Bota Chica desde 1931, la nave del barrio de Santiago, la uva de Macharnudo, quién hace cada oficio y lo que no cambiamos.">
+  <meta property="og:url" content="https://botachica.danimefle.com/sobre-nosotros.html">
+  <meta property="og:image" content="https://botachica.danimefle.com/assets/og/nosotros.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Sobre nosotros · Bodega Bota Chica">
+  <meta name="twitter:description" content="La historia de Bodega Bota Chica desde 1931, la nave del barrio de Santiago, la uva de Macharnudo, quién hace cada oficio y lo que no cambiamos.">
+  <meta name="twitter:image" content="https://botachica.danimefle.com/assets/og/nosotros.jpg">
+  <!-- Iconos y manifiesto / Icons and manifest -->
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <!-- Fuentes locales precargadas / Local fonts preloaded -->
+  <link rel="preload" href="assets/fonts/anton-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/work-sans-var-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/bota-chica.css">
+  <!-- Marca html.js antes de pintar / Marks html.js before paint -->
+  <script src="assets/js/early.js"></script>
+  <script src="assets/js/bota-chica.js" defer></script>
+  <!-- Analítica sin cookies / Cookieless analytics -->
+  <script defer data-domain="botachica.danimefle.com" src="https://analytics.danimefle.com/js/script.js"></script>
+</head>
+<body>
+  <a class="saltar" href="#contenido">Saltar al contenido</a>
+  <!-- ============ BARRA: nombre y navegación / BAR: name and navigation ============ -->
+  <header class="barra">
+    <div class="barra__in">
+      <a class="barra__marca" href="index.html" aria-label="Bodega Bota Chica, portada">Bota Chica</a>
+      <nav class="nav nav--barra" aria-label="Principal">
+        <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="nav-lista">Menú</button>
+        <ul class="nav__list" id="nav-lista">
+          <li><a class="nav__link" href="vinos.html">Vinos</a></li>
+          <li><a class="nav__link" href="visitas.html">Visitas</a></li>
+          <li><a class="nav__link" href="sobre-nosotros.html" aria-current="page">Nosotros</a></li>
+          <li><a class="nav__link" href="contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main id="contenido">
+    <!-- ============ CABECERA: título y panorámica / HEAD: title and panorama ============ -->
+    <section class="cab cab--nos" aria-labelledby="titulo">
+      <div class="cab__texto cab__texto--fila">
+        <h1 class="display" id="titulo">Tres andanas desde 1931</h1>
+        <p class="cab__lead">Somos una bodega pequeña del barrio de Santiago, en Jerez. Criamos cuatro vinos en ciento ocho botas y abrimos la puerta a quien quiera ver cómo se hace.</p>
+        <p class="cab__accion"><a class="button" href="visitas.html">Ven a ver la nave</a></p>
+      </div>
+      <figure class="cab__banda cab__banda--pano" data-shutter>
+        <img src="assets/img/tres-andanas-1920.webp" srcset="assets/img/tres-andanas-960.webp 960w, assets/img/tres-andanas-1920.webp 1920w, assets/img/tres-andanas-2560.webp 2560w" sizes="100vw" width="1920" height="1280" fetchpriority="high"
+             alt="Tres filas de botas de roble apiladas unas sobre otras bajo arcos encalados">
+      </figure>
+    </section>
+
+    <!-- ============ HISTORIA EN AÑOS / HISTORY IN YEARS ============ -->
+    <section class="historia" aria-labelledby="t-historia">
+      <h2 class="head" id="t-historia" data-reveal>La historia, en cinco fechas</h2>
+      <ol class="anios">
+        <li data-reveal><h3 class="anios__anio">1931</h3><p>La familia compra un almacén de grano en la calle Cinco Sextos. Tiene el techo alto, muros gruesos y ventanas al poniente: lo que pide una bodega. Ese invierno entran las primeras treinta botas; la primera de todas es una bota chica, de las de quinientos litros que se usaban para embarcar el vino, más pequeña que las de seiscientos de la nave, y de ella le viene el nombre a la casa. Sigue en la sacristía.</p></li>
+        <li data-reveal style="--i:1"><h3 class="anios__anio">1959</h3><p>Se arma la segunda solera, la del oloroso, con botas compradas a una bodega que cerraba. Desde entonces la nave tiene dos vinos y dos ritmos de saca.</p></li>
+        <li data-reveal style="--i:2"><h3 class="anios__anio">1988</h3><p>Se abre la puerta a las visitas. Al principio eran amigos de amigos; luego, cualquiera que llamara al timbre por la mañana.</p></li>
+        <li data-reveal style="--i:3"><h3 class="anios__anio">2009</h3><p>La tercera generación decide no crecer: ni una bota más de las que se pueden cuidar a mano, y nunca sacar más de lo que la solera aguanta.</p></li>
+        <li data-reveal style="--i:4"><h3 class="anios__anio">2026</h3><p>Ciento ocho botas en tres andanas, cuatro vinos, cinco visitas y la misma puerta de madera de 1931.</p></li>
+      </ol>
+    </section>
+
+    <!-- ============ EL LUGAR / THE PLACE ============ -->
+    <section class="lugar" aria-labelledby="t-lugar">
+      <div class="lugar__texto">
+        <h2 class="head" id="t-lugar" data-reveal>El lugar</h2>
+        <p data-reveal style="--i:1">La nave está orientada para que entre el poniente, el viento húmedo que llega del Atlántico y que le sienta bien a la flor. En verano se riega el suelo de albero y se bajan las esteras de las ventanas para que el aire se quede fresco.</p>
+        <p data-reveal style="--i:2">La uva viene del pago de Macharnudo, al norte de Jerez, donde la tierra es albariza: blanca, caliza, capaz de guardar el agua del invierno. Se la compramos cada septiembre a dos viticultores que la vendimian a mano.</p>
+      </div>
+      <figure class="lugar__foto" data-shutter>
+        <img src="assets/img/albariza-600.webp" width="600" height="450" loading="lazy" alt="Viñas de palomino sobre tierra albariza, blanca y agrietada">
+        <figcaption class="small">Viñas de palomino sobre la tierra albariza de Jerez.</figcaption>
+      </figure>
+      <figure class="lugar__lamina" data-shutter>
+        <img src="assets/img/lamina-palomino-900.webp" width="900" height="1351" loading="lazy" alt="Lámina en acuarela de un racimo de uva palomino, verde dorada, con hojas y anotaciones a lápiz">
+        <figcaption class="small">La uva palomino, en una lámina pomológica de 1900.</figcaption>
+      </figure>
+    </section>
+
+    <!-- ============ QUIÉNES: los oficios / WHO: the trades ============ -->
+    <section class="oficios" aria-labelledby="t-oficios">
+      <h2 class="head" id="t-oficios" data-reveal>Quién hace qué</h2>
+      <ul class="oficios__lista">
+        <li data-reveal><p class="oficios__oficio">Capataz</p><p><strong>Paco</strong> lleva la solera desde 2004. Decide cuándo se saca, prueba cada bota con la venencia y marca con tiza lo que va a ser cada vino.</p></li>
+        <li data-reveal style="--i:1"><p class="oficios__oficio">Arrumbadora</p><p><strong>Lola</strong> mueve las botas, rocía de una andana a otra con la canoa y la jarra, y sabe por el sonido si una bota está llena.</p></li>
+        <li data-reveal style="--i:2"><p class="oficios__oficio">Visitas</p><p><strong>Inés</strong> enseña la nave, da el taller de venencia y lleva el libro de reservas, que sigue siendo de papel.</p></li>
+      </ul>
+      <p class="small oficios__nota">Somos tres personas y una familia que echa una mano en vendimia. No ponemos caras: preferimos que conozcáis a cada uno en la nave.</p>
+    </section>
+
+    <!-- ============ LO QUE NO CAMBIAMOS / WHAT WE DO NOT CHANGE ============ -->
+    <section class="valores" aria-labelledby="t-valores">
+      <h2 class="head" id="t-valores" data-reveal>Lo que no cambiamos</h2>
+      <dl class="valores__lista">
+        <div data-reveal><dt class="big">Sin añadas</dt><dd>Todo sale de una solera. La edad que ponemos en la etiqueta es la media de la mezcla, calculada saca a saca.</dd></div>
+        <div data-reveal style="--i:1"><dt class="big">Un tercio, como mucho</dt><dd>Del fino nunca sacamos más de un tercio al año y del oloroso un quinto. Si la solera no da más, no hay más botellas.</dd></div>
+        <div data-reveal style="--i:2"><dt class="big">La sacristía no se vende</dt><dd>Las botas más viejas se quedan en la nave para probarlas allí y para refrescar, de vez en cuando, las soleras jóvenes.</dd></div>
+        <div data-reveal style="--i:3"><dt class="big">Se vende en la puerta</dt><dd>No hacemos envíos ni vendemos en tiendas. Cada botella sale de la bodega con alguien que sabe cómo guardarla.</dd></div>
+      </dl>
+      <figure class="valores__foto" data-shutter>
+        <img src="assets/img/canoas-800.webp" width="800" height="1066" loading="lazy" alt="Canoas de metal colgadas de una columna encalada: los embudos con los que se pasa el vino de una bota a otra">
+        <figcaption class="small">Canoas para rociar el vino de una andana a otra.</figcaption>
+      </figure>
+    </section>
+  </main>
+  <!-- ============ PIE: invitación, enlaces y nombre entero ============ -->
+  <!-- ============ FOOTER: invitation, links and the whole name ============ -->
+  <footer class="pie">
+    <div class="pie__top">
+      <div class="pie__invita">
+        <h2 class="big lines pie__frase" data-reveal>
+          <span class="line"><span data-line style="--i:0">Ven a sacar</span></span>
+          <span class="line"><span data-line style="--i:1">tu copa</span></span>
+        </h2>
+        <a class="button button--chalk" href="visitas.html" data-reveal style="--i:2">Ver visitas y catas</a>
+      </div>
+      <nav class="pie__links" aria-label="Pie" data-reveal style="--i:3">
+        <ul>
+          <li><a class="link" href="vinos.html">Vinos</a></li>
+          <li><a class="link" href="visitas.html">Visitas y catas</a></li>
+          <li><a class="link" href="sobre-nosotros.html">Nosotros</a></li>
+          <li><a class="link" href="contacto.html">Contacto y cómo llegar</a></li>
+          <li><a class="link" href="mailto:hola@botachica.example">hola@botachica.example</a></li>
+        </ul>
+      </nav>
+    </div>
+    <!-- Base del pie: el nombre entero a la izquierda y lo legal a la derecha -->
+    <!-- Footer base: the whole name on the left, the legal lines on the right -->
+    <div class="pie__base">
+      <p class="mark mark--pie" aria-hidden="true" data-mark="pie"><span class="mark__word">Bota Chica</span></p>
+      <div class="pie__legal small">
+        <p>Marca ficticia. <a class="link" href="https://danimefle.com">Web de demostración de danimefle.com</a>.</p>
+        <p>Disfruta del vino con moderación. No se sirve alcohol a menores de 18 años.</p>
+        <ul class="pie__legales">
+          <li><a class="link" href="aviso-legal.html">Aviso legal</a></li>
+          <li><a class="link" href="privacidad.html">Privacidad</a></li>
+          <li><a class="link" href="cookies.html">Cookies</a></li>
+          <li><a class="link" href="creditos.html">Créditos</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

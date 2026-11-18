@@ -1,0 +1,258 @@
+<!doctype html>
+<!--
+  vinos.html: Vinos · Bodega Bota Chica
+  Web de demostración de una bodega ficticia de vino de Jerez. HTML, CSS y JS en ficheros propios (la CSP no deja código en línea).
+  Demo website for a fictional sherry bodega. HTML, CSS and JS in their own files (the CSP forbids inline code).
+-->
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vinos · Bodega Bota Chica</title>
+  <meta name="description" content="Fino, amontillado, oloroso y Pedro Ximénez de Bodega Bota Chica: uva, crianza, edad media, cata, temperatura de servicio y precio de cada vino.">
+  <!-- Marca ficticia: no debe salir en buscadores / Fictional brand: keep it out of search engines -->
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://botachica.danimefle.com/vinos.html">
+  <meta name="theme-color" content="#e4e2dd">
+  <!-- Open Graph y Twitter / Open Graph and Twitter -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:site_name" content="Bodega Bota Chica">
+  <meta property="og:title" content="Vinos · Bodega Bota Chica">
+  <meta property="og:description" content="Fino, amontillado, oloroso y Pedro Ximénez de Bodega Bota Chica: uva, crianza, edad media, cata, temperatura de servicio y precio de cada vino.">
+  <meta property="og:url" content="https://botachica.danimefle.com/vinos.html">
+  <meta property="og:image" content="https://botachica.danimefle.com/assets/og/vinos.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Vinos · Bodega Bota Chica">
+  <meta name="twitter:description" content="Fino, amontillado, oloroso y Pedro Ximénez de Bodega Bota Chica: uva, crianza, edad media, cata, temperatura de servicio y precio de cada vino.">
+  <meta name="twitter:image" content="https://botachica.danimefle.com/assets/og/vinos.jpg">
+  <!-- Iconos y manifiesto / Icons and manifest -->
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <!-- Fuentes locales precargadas / Local fonts preloaded -->
+  <link rel="preload" href="assets/fonts/anton-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/work-sans-var-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/bota-chica.css">
+  <!-- Marca html.js antes de pintar / Marks html.js before paint -->
+  <script src="assets/js/early.js"></script>
+  <script src="assets/js/bota-chica.js" defer></script>
+  <!-- Analítica sin cookies / Cookieless analytics -->
+  <script defer data-domain="botachica.danimefle.com" src="https://analytics.danimefle.com/js/script.js"></script>
+</head>
+<body>
+  <a class="saltar" href="#contenido">Saltar al contenido</a>
+  <!-- ============ BARRA: nombre y navegación / BAR: name and navigation ============ -->
+  <header class="barra">
+    <div class="barra__in">
+      <a class="barra__marca" href="index.html" aria-label="Bodega Bota Chica, portada">Bota Chica</a>
+      <nav class="nav nav--barra" aria-label="Principal">
+        <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="nav-lista">Menú</button>
+        <ul class="nav__list" id="nav-lista">
+          <li><a class="nav__link" href="vinos.html" aria-current="page">Vinos</a></li>
+          <li><a class="nav__link" href="visitas.html">Visitas</a></li>
+          <li><a class="nav__link" href="sobre-nosotros.html">Nosotros</a></li>
+          <li><a class="nav__link" href="contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main id="contenido">
+    <!-- ============ CABECERA: título y velo de flor / HEAD: title and flor ============ -->
+    <section class="cab cab--vinos" aria-labelledby="titulo">
+      <div class="cab__texto">
+        <h1 class="display" id="titulo">Los vinos de las tres andanas</h1>
+        <p class="cab__lead">Cuatro vinos y ninguna añada. Todos salen de una solera, así que cada botella lleva muchas cosechas mezcladas, y en cada bota hay una marca de tiza que dice qué vino guarda.</p>
+        <ul class="indice" aria-label="Ir a un vino">
+          <li><a class="indice__link" href="#fino">Fino</a></li>
+          <li><a class="indice__link" href="#amontillado">Amontillado</a></li>
+          <li><a class="indice__link" href="#oloroso">Oloroso</a></li>
+          <li><a class="indice__link" href="#px">Pedro Ximénez</a></li>
+        </ul>
+      </div>
+      <figure class="cab__foto" data-shutter>
+        <img src="assets/img/velo-de-flor-1200.webp" srcset="assets/img/velo-de-flor-700.webp 700w, assets/img/velo-de-flor-1200.webp 1200w" sizes="(min-width: 64em) 45vw, 100vw" width="1200" height="800" fetchpriority="high"
+             alt="Velo de flor visto de cerca dentro de una bota: una capa de levadura blanca y rugosa sobre el vino">
+        <figcaption class="small">El velo de flor sobre el vino, dentro de una bota.</figcaption>
+      </figure>
+    </section>
+
+    <section class="vino vino--a" id="fino" aria-labelledby="t-fino">
+      <figure class="vino__cabeza" data-reveal>
+        <svg class="cabeza" viewBox="0 0 100 100" aria-hidden="true" focusable="false">
+          <circle class="cabeza__madera" cx="50" cy="50" r="48"/>
+          <circle class="cabeza__aro" cx="50" cy="50" r="43"/>
+          <g class="cabeza__marca"><path d="M50 74 L50 38"/><path d="M50 50 L37 31"/><path d="M50 50 L63 31"/></g>
+        </svg>
+        <figcaption class="small">La palma, la marca con que se señalan las botas de fino más fino.</figcaption>
+      </figure>
+      <figure class="vino__foto" data-shutter>
+        <img src="assets/img/copita-fino-900.webp" width="900" height="1350" loading="lazy" alt="Una copa de fino, pálido y frío, sobre una barra">
+        <figcaption class="small">Una copa de fino recién servida, todavía fría.</figcaption>
+      </figure>
+      <div class="vino__texto">
+        <h2 class="big vino__nombre" id="t-fino" data-reveal>Fino, diez años bajo flor</h2>
+        <p class="vino__lead" data-reveal style="--i:1">Es el vino de la casa y el que más se bebe en la nave. Pasa diez años de media bajo la flor, sin tocar el aire, y por eso sale tan pálido y tan seco. Se embotella en primavera, cuando la flor está más gruesa.</p>
+        <dl class="ficha ficha--larga" data-reveal style="--i:2">
+          <div><dt>Uva</dt><dd>Palomino fino del pago de Macharnudo</dd></div>
+          <div><dt>Crianza</dt><dd>Biológica, bajo velo de flor</dd></div>
+          <div><dt>Solera</dt><dd>Tres andanas; se saca un tercio al año</dd></div>
+          <div><dt>Edad media</dt><dd>10 años</dd></div>
+          <div><dt>Grado</dt><dd>15 % vol.</dd></div>
+          <div><dt>Color</dt><dd>Amarillo pajizo, muy pálido</dd></div>
+          <div><dt>Nariz</dt><dd>Almendra cruda, miga de pan, levadura y hierba seca.</dd></div>
+          <div><dt>Boca</dt><dd>Seco, ligero y salino, con un final largo y un punto amargo.</dd></div>
+          <div><dt>Cómo servirlo</dt><dd>Muy frío, entre 7 y 9 °C, en copa de vino blanco.</dd></div>
+          <div><dt>Con qué</dt><dd>Aceitunas, almendras, jamón, pescado frito y mariscos.</dd></div>
+          <div><dt>Una vez abierto</dt><dd>Una semana en la nevera, bien tapado.</dd></div>
+          <div><dt>Botella</dt><dd>75 cl · 16 €</dd></div>
+        </dl>
+      </div>
+    </section>
+    <section class="vino vino--b" id="amontillado" aria-labelledby="t-amontillado">
+      <figure class="vino__cabeza" data-reveal>
+        <svg class="cabeza" viewBox="0 0 100 100" aria-hidden="true" focusable="false">
+          <circle class="cabeza__madera" cx="50" cy="50" r="48"/>
+          <circle class="cabeza__aro" cx="50" cy="50" r="43"/>
+          <g class="cabeza__marca"><path d="M40 72 L60 30"/><path d="M64 70 L65 71"/></g>
+        </svg>
+        <figcaption class="small">Raya y punto: la marca de la casa para las botas que pasan a amontillado.</figcaption>
+      </figure>
+      <div class="vino__texto">
+        <h2 class="big vino__nombre" id="t-amontillado" data-reveal>Amontillado, dieciocho años</h2>
+        <p class="vino__lead" data-reveal style="--i:1">Empieza como nuestro fino. Pasados los diez años la flor se agota; entonces lo encabezamos a diecisiete grados y lo dejamos otros ocho años en una solera sin velo, donde el aire lo oscurece despacio.</p>
+        <dl class="ficha ficha--larga" data-reveal style="--i:2">
+          <div><dt>Uva</dt><dd>Palomino fino</dd></div>
+          <div><dt>Crianza</dt><dd>Biológica y después oxidativa</dd></div>
+          <div><dt>Solera</dt><dd>Nace de la solera del fino y sigue en otra de dos andanas</dd></div>
+          <div><dt>Edad media</dt><dd>18 años</dd></div>
+          <div><dt>Grado</dt><dd>18 % vol.</dd></div>
+          <div><dt>Color</dt><dd>Ámbar, con reflejos de topacio</dd></div>
+          <div><dt>Nariz</dt><dd>Avellana tostada, yodo, madera vieja y un fondo de levadura.</dd></div>
+          <div><dt>Boca</dt><dd>Seco y sabroso, con más cuerpo que el fino y un final muy largo.</dd></div>
+          <div><dt>Cómo servirlo</dt><dd>Fresco, entre 12 y 14 °C.</dd></div>
+          <div><dt>Con qué</dt><dd>Consomé, alcachofas, setas, atún a la plancha y quesos curados.</dd></div>
+          <div><dt>Una vez abierto</dt><dd>Un mes, en un sitio fresco y oscuro.</dd></div>
+          <div><dt>Botella</dt><dd>50 cl · 28 €</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <figure class="banda-foto" data-shutter>
+      <img src="assets/img/tres-andanas-1920.webp" srcset="assets/img/tres-andanas-960.webp 960w, assets/img/tres-andanas-1920.webp 1920w, assets/img/tres-andanas-2560.webp 2560w" sizes="100vw" width="1920" height="1280" loading="lazy"
+           alt="Tres filas de botas de roble apiladas bajo arcos encalados">
+      <figcaption class="small">Las botas del amontillado y del oloroso comparten nave con las del fino.</figcaption>
+    </figure>
+    <section class="vino vino--a" id="oloroso" aria-labelledby="t-oloroso">
+      <figure class="vino__cabeza" data-reveal>
+        <svg class="cabeza" viewBox="0 0 100 100" aria-hidden="true" focusable="false">
+          <circle class="cabeza__madera" cx="50" cy="50" r="48"/>
+          <circle class="cabeza__aro" cx="50" cy="50" r="43"/>
+          <g class="cabeza__marca"><path d="M33 72 L49 30"/><path d="M51 72 L67 30"/></g>
+        </svg>
+        <figcaption class="small">Dos rayas: así se marcan las botas de oloroso.</figcaption>
+      </figure>
+      <div class="vino__texto">
+        <h2 class="big vino__nombre" id="t-oloroso" data-reveal>Oloroso, dieciséis años</h2>
+        <p class="vino__lead" data-reveal style="--i:1">Se encabeza desde el primer día para que no crezca la flor. Sin velo, el vino respira a través de la madera, se concentra y gana color. Como sacamos poco cada año, es el vino con más cosechas dentro.</p>
+        <dl class="ficha ficha--larga" data-reveal style="--i:2">
+          <div><dt>Uva</dt><dd>Palomino fino</dd></div>
+          <div><dt>Crianza</dt><dd>Oxidativa, sin velo de flor</dd></div>
+          <div><dt>Solera</dt><dd>Tres andanas; se saca un quinto al año</dd></div>
+          <div><dt>Edad media</dt><dd>16 años</dd></div>
+          <div><dt>Grado</dt><dd>19 % vol.</dd></div>
+          <div><dt>Color</dt><dd>Caoba brillante</dd></div>
+          <div><dt>Nariz</dt><dd>Nuez, cuero, tabaco de pipa y piel de naranja amarga.</dd></div>
+          <div><dt>Boca</dt><dd>Seco aunque huela a dulce, redondo y cálido.</dd></div>
+          <div><dt>Cómo servirlo</dt><dd>Entre 13 y 15 °C, en copa amplia.</dd></div>
+          <div><dt>Con qué</dt><dd>Carnes de caza, guisos, rabo de toro y chocolate negro.</dd></div>
+          <div><dt>Una vez abierto</dt><dd>Mes y medio sin perder nada.</dd></div>
+          <div><dt>Botella</dt><dd>50 cl · 26 €</dd></div>
+        </dl>
+      </div>
+    </section>
+    <section class="vino vino--b" id="px" aria-labelledby="t-px">
+      <figure class="vino__cabeza" data-reveal>
+        <svg class="cabeza" viewBox="0 0 100 100" aria-hidden="true" focusable="false">
+          <circle class="cabeza__madera" cx="50" cy="50" r="48"/>
+          <circle class="cabeza__aro" cx="50" cy="50" r="43"/>
+          <g class="cabeza__marca"><path d="M30 72 L30 32 L41 32 C51 32 51 50 41 50 L30 50"/><path d="M57 32 L73 72"/><path d="M73 32 L57 72"/></g>
+        </svg>
+        <figcaption class="small">Las letras de la uva: la marca de la casa para el Pedro Ximénez.</figcaption>
+      </figure>
+      <div class="vino__texto">
+        <h2 class="big vino__nombre" id="t-px" data-reveal>Pedro Ximénez, doce años</h2>
+        <p class="vino__lead" data-reveal style="--i:1">La uva se seca al sol sobre esteras hasta que se vuelve pasa. El mosto, espeso y muy dulce, se encabeza y se cría en una solera de doce botas al fondo de la nave.</p>
+        <dl class="ficha ficha--larga" data-reveal style="--i:2">
+          <div><dt>Uva</dt><dd>Pedro Ximénez asoleada</dd></div>
+          <div><dt>Crianza</dt><dd>Oxidativa</dd></div>
+          <div><dt>Solera</dt><dd>Su propia solera, la más pequeña de la casa</dd></div>
+          <div><dt>Edad media</dt><dd>12 años</dd></div>
+          <div><dt>Grado</dt><dd>15 % vol.</dd></div>
+          <div><dt>Color</dt><dd>Caoba muy oscuro, casi negro</dd></div>
+          <div><dt>Nariz</dt><dd>Higo seco, pasa, dátil, café y cacao.</dd></div>
+          <div><dt>Boca</dt><dd>Dulce, denso y sedoso, con la acidez justa para no cansar.</dd></div>
+          <div><dt>Cómo servirlo</dt><dd>Entre 12 y 14 °C, en copa pequeña.</dd></div>
+          <div><dt>Con qué</dt><dd>Helado de vainilla, postres de chocolate y quesos azules.</dd></div>
+          <div><dt>Una vez abierto</dt><dd>Dos meses, o más.</dd></div>
+          <div><dt>Botella</dt><dd>37,5 cl · 24 €</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- ============ DÓNDE COMPRARLOS / WHERE TO BUY ============ -->
+    <section class="aviso-compra" aria-labelledby="t-compra">
+      <div class="aviso-compra__texto">
+        <h2 class="head" id="t-compra" data-reveal>Dónde se compran</h2>
+        <a class="button" href="visitas.html" data-reveal style="--i:1">Ver visitas y catas</a>
+        <p data-reveal style="--i:2">Las botellas se venden solo en la bodega, al terminar la visita, y solo a mayores de 18 años. No hacemos envíos: preferimos saber a quién le damos cada botella y contarle cómo guardarla, cuánto aguanta abierta y a qué temperatura servirla.</p>
+      </div>
+      <figure class="aviso-compra__foto" data-shutter>
+        <img src="assets/img/catavino-sol-768.webp" width="768" height="1358" loading="lazy" alt="Un catavino con fino a contraluz bajo el cielo azul">
+        <figcaption class="small">Un catavino de fino al sol.</figcaption>
+      </figure>
+    </section>
+  </main>
+  <!-- ============ PIE: invitación, enlaces y nombre entero ============ -->
+  <!-- ============ FOOTER: invitation, links and the whole name ============ -->
+  <footer class="pie">
+    <div class="pie__top">
+      <div class="pie__invita">
+        <h2 class="big lines pie__frase" data-reveal>
+          <span class="line"><span data-line style="--i:0">Ven a sacar</span></span>
+          <span class="line"><span data-line style="--i:1">tu copa</span></span>
+        </h2>
+        <a class="button button--chalk" href="visitas.html" data-reveal style="--i:2">Ver visitas y catas</a>
+      </div>
+      <nav class="pie__links" aria-label="Pie" data-reveal style="--i:3">
+        <ul>
+          <li><a class="link" href="vinos.html">Vinos</a></li>
+          <li><a class="link" href="visitas.html">Visitas y catas</a></li>
+          <li><a class="link" href="sobre-nosotros.html">Nosotros</a></li>
+          <li><a class="link" href="contacto.html">Contacto y cómo llegar</a></li>
+          <li><a class="link" href="mailto:hola@botachica.example">hola@botachica.example</a></li>
+        </ul>
+      </nav>
+    </div>
+    <!-- Base del pie: el nombre entero a la izquierda y lo legal a la derecha -->
+    <!-- Footer base: the whole name on the left, the legal lines on the right -->
+    <div class="pie__base">
+      <p class="mark mark--pie" aria-hidden="true" data-mark="pie"><span class="mark__word">Bota Chica</span></p>
+      <div class="pie__legal small">
+        <p>Marca ficticia. <a class="link" href="https://danimefle.com">Web de demostración de danimefle.com</a>.</p>
+        <p>Disfruta del vino con moderación. No se sirve alcohol a menores de 18 años.</p>
+        <ul class="pie__legales">
+          <li><a class="link" href="aviso-legal.html">Aviso legal</a></li>
+          <li><a class="link" href="privacidad.html">Privacidad</a></li>
+          <li><a class="link" href="cookies.html">Cookies</a></li>
+          <li><a class="link" href="creditos.html">Créditos</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

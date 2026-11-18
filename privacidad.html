@@ -1,0 +1,122 @@
+<!doctype html>
+<!--
+  privacidad.html: Privacidad · Bodega Bota Chica
+  Web de demostración de una bodega ficticia de vino de Jerez. HTML, CSS y JS en ficheros propios (la CSP no deja código en línea).
+  Demo website for a fictional sherry bodega. HTML, CSS and JS in their own files (the CSP forbids inline code).
+-->
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Privacidad · Bodega Bota Chica</title>
+  <meta name="description" content="Política de privacidad de la web de demostración de Bodega Bota Chica: el formulario no envía nada y la analítica no usa cookies.">
+  <!-- Marca ficticia: no debe salir en buscadores / Fictional brand: keep it out of search engines -->
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://botachica.danimefle.com/privacidad.html">
+  <meta name="theme-color" content="#e4e2dd">
+  <!-- Open Graph y Twitter / Open Graph and Twitter -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:site_name" content="Bodega Bota Chica">
+  <meta property="og:title" content="Privacidad · Bodega Bota Chica">
+  <meta property="og:description" content="Política de privacidad de la web de demostración de Bodega Bota Chica: el formulario no envía nada y la analítica no usa cookies.">
+  <meta property="og:url" content="https://botachica.danimefle.com/privacidad.html">
+  <meta property="og:image" content="https://botachica.danimefle.com/assets/og/legal.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Privacidad · Bodega Bota Chica">
+  <meta name="twitter:description" content="Política de privacidad de la web de demostración de Bodega Bota Chica: el formulario no envía nada y la analítica no usa cookies.">
+  <meta name="twitter:image" content="https://botachica.danimefle.com/assets/og/legal.jpg">
+  <!-- Iconos y manifiesto / Icons and manifest -->
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <!-- Fuentes locales precargadas / Local fonts preloaded -->
+  <link rel="preload" href="assets/fonts/anton-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/work-sans-var-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/bota-chica.css">
+  <!-- Marca html.js antes de pintar / Marks html.js before paint -->
+  <script src="assets/js/early.js"></script>
+  <script src="assets/js/bota-chica.js" defer></script>
+  <!-- Analítica sin cookies / Cookieless analytics -->
+  <script defer data-domain="botachica.danimefle.com" src="https://analytics.danimefle.com/js/script.js"></script>
+</head>
+<body>
+  <a class="saltar" href="#contenido">Saltar al contenido</a>
+  <!-- ============ BARRA: nombre y navegación / BAR: name and navigation ============ -->
+  <header class="barra">
+    <div class="barra__in">
+      <a class="barra__marca" href="index.html" aria-label="Bodega Bota Chica, portada">Bota Chica</a>
+      <nav class="nav nav--barra" aria-label="Principal">
+        <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="nav-lista">Menú</button>
+        <ul class="nav__list" id="nav-lista">
+          <li><a class="nav__link" href="vinos.html">Vinos</a></li>
+          <li><a class="nav__link" href="visitas.html">Visitas</a></li>
+          <li><a class="nav__link" href="sobre-nosotros.html">Nosotros</a></li>
+          <li><a class="nav__link" href="contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main id="contenido" class="prosa-pagina">
+    <div class="prosa">
+    <h1 class="display prosa__titulo">Privacidad</h1>
+    <p class="prosa__lead">Esta web no guarda ni envía lo que escribes. El formulario de contacto pide nombre y correo, pero no los manda a ningún servidor, y la analítica no usa cookies ni guarda tu dirección IP.</p>
+    <h2 class="head" data-reveal>Responsable</h2>
+    <p data-reveal>Daniel Castaños Mefle, titular del sitio. Sus datos de contacto están en el <a class="link link--en-texto" href="https://danimefle.com/aviso-legal">aviso legal de danimefle.com</a>.</p>
+    <h2 class="head" data-reveal>El formulario de contacto</h2>
+    <p data-reveal>El formulario no se envía a ningún servidor. Al pulsar el botón, la propia página abre tu programa de correo con el texto que has escrito, dirigido a una dirección de ejemplo (botachica.example) que no existe. Nada de lo que escribes sale de tu dispositivo salvo que tú envíes ese correo.</p>
+    <h2 class="head" data-reveal>Analítica</h2>
+    <p data-reveal>Para saber cuántas visitas recibe la web se usa Plausible, instalado en un servidor propio (analytics.danimefle.com). Plausible no usa cookies y no guarda la dirección IP. La usa, junto con el navegador, solo para calcular un identificador anónimo que cambia cada día y que sirve para contar visitas únicas; ese identificador se borra a las 24 horas. Los informes son agregados: páginas vistas, país aproximado, navegador y página de procedencia. El responsable de esa analítica es el titular del sitio.</p>
+    <h2 class="head" data-reveal>Tus derechos</h2>
+    <p data-reveal>No se guarda ningún dato que permita identificarte, así que no hay datos tuyos que consultar, corregir o borrar. Si tienes cualquier duda, puedes escribir al titular desde danimefle.com.</p>
+    </div>
+    <aside class="prosa__tira" aria-label="Fotos de la nave">
+      <figure data-shutter><img src="assets/img/bodega-nave-960.webp" width="960" height="640" loading="lazy" alt="Pasillo de una nave de bodega entre dos hileras de botas"></figure>
+      <figure data-shutter><img src="assets/img/velo-de-flor-700.webp" width="700" height="466" loading="lazy" alt="Velo de flor sobre el vino dentro de una bota"></figure>
+      <figure data-shutter><img src="assets/img/tres-andanas-960.webp" width="960" height="640" loading="lazy" alt="Tres filas de botas apiladas bajo arcos encalados"></figure>
+      <figure data-shutter><img src="assets/img/venencia-recorte-768.webp" width="768" height="1278" loading="lazy" alt="La punta de una venencia vierte vino en una copa"></figure>
+    </aside>
+  </main>
+  <!-- ============ PIE: invitación, enlaces y nombre entero ============ -->
+  <!-- ============ FOOTER: invitation, links and the whole name ============ -->
+  <footer class="pie">
+    <div class="pie__top">
+      <div class="pie__invita">
+        <h2 class="big lines pie__frase" data-reveal>
+          <span class="line"><span data-line style="--i:0">Ven a sacar</span></span>
+          <span class="line"><span data-line style="--i:1">tu copa</span></span>
+        </h2>
+        <a class="button button--chalk" href="visitas.html" data-reveal style="--i:2">Ver visitas y catas</a>
+      </div>
+      <nav class="pie__links" aria-label="Pie" data-reveal style="--i:3">
+        <ul>
+          <li><a class="link" href="vinos.html">Vinos</a></li>
+          <li><a class="link" href="visitas.html">Visitas y catas</a></li>
+          <li><a class="link" href="sobre-nosotros.html">Nosotros</a></li>
+          <li><a class="link" href="contacto.html">Contacto y cómo llegar</a></li>
+          <li><a class="link" href="mailto:hola@botachica.example">hola@botachica.example</a></li>
+        </ul>
+      </nav>
+    </div>
+    <!-- Base del pie: el nombre entero a la izquierda y lo legal a la derecha -->
+    <!-- Footer base: the whole name on the left, the legal lines on the right -->
+    <div class="pie__base">
+      <p class="mark mark--pie" aria-hidden="true" data-mark="pie"><span class="mark__word">Bota Chica</span></p>
+      <div class="pie__legal small">
+        <p>Marca ficticia. <a class="link" href="https://danimefle.com">Web de demostración de danimefle.com</a>.</p>
+        <p>Disfruta del vino con moderación. No se sirve alcohol a menores de 18 años.</p>
+        <ul class="pie__legales">
+          <li><a class="link" href="aviso-legal.html">Aviso legal</a></li>
+          <li><a class="link" href="privacidad.html">Privacidad</a></li>
+          <li><a class="link" href="cookies.html">Cookies</a></li>
+          <li><a class="link" href="creditos.html">Créditos</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

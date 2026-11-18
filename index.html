@@ -1,0 +1,392 @@
+<!doctype html>
+<!--
+  index.html: Bodega Bota Chica · Vino de Jerez criado en tres andanas
+  Web de demostración de una bodega ficticia de vino de Jerez. HTML, CSS y JS en ficheros propios (la CSP no deja código en línea).
+  Demo website for a fictional sherry bodega. HTML, CSS and JS in their own files (the CSP forbids inline code).
+-->
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bodega Bota Chica · Vino de Jerez criado en tres andanas</title>
+  <meta name="description" content="Bodega pequeña y ficticia de vino de Jerez: fino, amontillado, oloroso y Pedro Ximénez de criaderas y soleras. Visitas y catas de martes a sábado.">
+  <!-- Marca ficticia: no debe salir en buscadores / Fictional brand: keep it out of search engines -->
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://botachica.danimefle.com/">
+  <meta name="theme-color" content="#e4e2dd">
+  <!-- Open Graph y Twitter / Open Graph and Twitter -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:site_name" content="Bodega Bota Chica">
+  <meta property="og:title" content="Bodega Bota Chica · Vino de Jerez criado en tres andanas">
+  <meta property="og:description" content="Bodega pequeña y ficticia de vino de Jerez: fino, amontillado, oloroso y Pedro Ximénez de criaderas y soleras. Visitas y catas de martes a sábado.">
+  <meta property="og:url" content="https://botachica.danimefle.com/">
+  <meta property="og:image" content="https://botachica.danimefle.com/assets/og/portada.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Bodega Bota Chica · Vino de Jerez criado en tres andanas">
+  <meta name="twitter:description" content="Bodega pequeña y ficticia de vino de Jerez: fino, amontillado, oloroso y Pedro Ximénez de criaderas y soleras. Visitas y catas de martes a sábado.">
+  <meta name="twitter:image" content="https://botachica.danimefle.com/assets/og/portada.jpg">
+  <!-- Iconos y manifiesto / Icons and manifest -->
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <!-- Fuentes locales precargadas / Local fonts preloaded -->
+  <link rel="preload" href="assets/fonts/anton-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/work-sans-var-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Bodega Bota Chica","url":"https://botachica.danimefle.com/","inLanguage":"es","description":"Web de demostración de una bodega ficticia de vino de Jerez."}</script>
+  <link rel="preload" href="assets/img/bodega-nave-1920.webp" as="image" imagesrcset="assets/img/bodega-nave-960.webp 960w, assets/img/bodega-nave-1920.webp 1920w, assets/img/bodega-nave-2560.webp 2560w" imagesizes="100vw">
+  <link rel="stylesheet" href="assets/css/bota-chica.css">
+  <!-- Marca html.js antes de pintar / Marks html.js before paint -->
+  <script src="assets/js/early.js"></script>
+  <script src="assets/js/bota-chica.js" defer></script>
+  <!-- Analítica sin cookies / Cookieless analytics -->
+  <script defer data-domain="botachica.danimefle.com" src="https://analytics.danimefle.com/js/script.js"></script>
+</head>
+<body>
+  <a class="saltar" href="#contenido">Saltar al contenido</a>
+  <!-- ============ PORTADA: el nombre bajo la fotografía ============ -->
+  <!-- ============ HERO: the name under the photograph ============ -->
+  <header class="hero" id="inicio">
+    <div class="hero__photo" data-hero-photo>
+      <img src="assets/img/bodega-nave-1920.webp"
+           srcset="assets/img/bodega-nave-960.webp 960w, assets/img/bodega-nave-1920.webp 1920w, assets/img/bodega-nave-2560.webp 2560w"
+           sizes="100vw" width="1920" height="1280" fetchpriority="high"
+           alt="Nave de una bodega de Jerez: dos hileras de botas apiladas en andanas a lo largo de un pasillo con farol y arcos encalados">
+      <!-- Navegación sobre la esquina de la foto / Navigation over the photo's corner -->
+      <nav class="nav" aria-label="Principal">
+        <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="nav-lista">Menú</button>
+        <ul class="nav__list" id="nav-lista">
+          <li><a class="nav__link" href="vinos.html">Vinos</a></li>
+          <li><a class="nav__link" href="visitas.html">Visitas</a></li>
+          <li><a class="nav__link" href="sobre-nosotros.html">Nosotros</a></li>
+          <li><a class="nav__link" href="contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="hero__band">
+      <div class="hero__row">
+        <p class="hero__lead" data-load style="--d:380ms">Bodega pequeña de vino de Jerez: fino, amontillado, oloroso y PX criados en tres andanas de botas.</p>
+        <a class="button" data-load style="--d:460ms" href="visitas.html">Visitas y catas</a>
+      </div>
+      <h1 class="mark" data-mark="hero">
+        <span class="mark__word"><span class="mark__inner">Bota<span class="mark__salto"> </span>Chica</span></span>
+      </h1>
+    </div>
+  </header>
+
+  <main id="contenido">
+
+    <!-- ============ INTRO: titular que rotula una panorámica ============ -->
+    <!-- ============ INTRO: a heading that captions a panorama ============ -->
+    <section class="intro" aria-labelledby="intro-titulo">
+      <div class="intro__head">
+        <h2 class="big lines" id="intro-titulo">
+          <span class="line"><span data-line style="--i:0">Tres andanas,</span></span>
+          <span class="line"><span data-line style="--i:1">ciento ocho botas</span></span>
+        </h2>
+        <div class="intro__captions">
+          <p class="small" data-reveal style="--i:2">Roble americano de seiscientos litros, llenas a cinco sextos para que respire la flor.</p>
+          <p class="small" data-reveal style="--i:3">Desde 1931 en el barrio de Santiago, con el techo alto y las ventanas al poniente.</p>
+        </div>
+      </div>
+      <figure class="intro__pano" data-shutter>
+        <div class="intro__frame">
+          <img src="assets/img/tres-andanas-1920.webp"
+               srcset="assets/img/tres-andanas-960.webp 960w, assets/img/tres-andanas-1920.webp 1920w, assets/img/tres-andanas-2560.webp 2560w"
+               sizes="100vw" width="1920" height="1280" data-drift
+               alt="Tres filas de botas de roble apiladas unas sobre otras bajo arcos encalados, con números de tiza en las cabezas">
+        </div>
+        <figcaption class="small intro__cap">Tres andanas: la solera en el suelo y dos criaderas encima.</figcaption>
+      </figure>
+    </section>
+
+    <!-- ============ CÓMO SE HACE: líneas en escalera ============ -->
+    <!-- ============ HOW IT IS MADE: lines that step across ============ -->
+    <section class="steps" aria-label="Cómo se hace el vino">
+      <ol class="steps__list">
+        <li class="step step--1" data-reveal>
+          <h2 class="big step__line lines"><span class="line"><span data-line>Primero, la albariza da el palomino.</span></span></h2>
+          <p class="step__text">Vendimiamos a mano a primeros de septiembre en el pago de Macharnudo. La tierra blanca guarda la lluvia del invierno y se la devuelve a la cepa en agosto.</p>
+        </li>
+        <li class="step step--2" data-reveal>
+          <h3 class="big step__line lines"><span class="line"><span data-line>Luego la flor cubre el vino.</span></span></h3>
+          <p class="step__text">En la bota a cinco sextos crece un velo de levaduras que aísla el vino del aire. Bajo él se cría el fino. Si lo encabezamos a 17 grados, la flor no aparece y nace un oloroso.</p>
+        </li>
+        <li class="step step--3" data-reveal>
+          <h3 class="big step__line lines"><span class="line"><span data-line>Después baja de andana en andana.</span></span></h3>
+          <p class="step__text">Cada año sacamos una parte de la fila del suelo y la reponemos con la de arriba. Ninguna botella lleva una sola cosecha: lleva todas las que han pasado por la solera.</p>
+        </li>
+        <li class="step step--4" data-reveal>
+          <h3 class="big step__line step__line--last lines"><span class="line"><span data-line>Al final, la venencia.</span></span></h3>
+          <p class="step__text">El capataz atraviesa la flor con la venencia y sirve desde lo alto, a la copa, sin tocar el borde. Así lo probará usted en la bodega.</p>
+        </li>
+      </ol>
+      <figure class="steps__plate" data-shutter>
+        <img src="assets/img/lamina-palomino-900.webp" width="900" height="1351"
+             alt="Lámina en acuarela de un racimo de uva palomino, verde dorada, con hojas y anotaciones a lápiz" loading="lazy">
+        <figcaption class="small">Palomino, en una lámina pomológica de 1900.</figcaption>
+      </figure>
+    </section>
+
+    <!-- ============ LA SOLERA: la cosa viva (sacar y rociar) ============ -->
+    <!-- ============ THE SOLERA: the live thing (draw off and refill) ============ -->
+    <section class="solera" id="solera" aria-labelledby="solera-titulo">
+      <div class="solera__grid">
+        <div class="solera__text">
+          <h2 class="head" id="solera-titulo" data-reveal>Saca de abajo y mira bajar el resto</h2>
+          <p data-reveal style="--i:1">Nunca se embotella una bota entera. De la fila del suelo, la solera, sacamos cada año un tercio del fino o un quinto del oloroso, y la rellenamos con vino de la andana de arriba. Esa se rellena con la siguiente, y la última con el vino nuevo, la sobretabla. Por eso aquí no hay añadas.</p>
+
+          <!-- Controles: solo aparecen con JavaScript / Controls: only shown with JavaScript -->
+          <div class="solera__controls" data-reveal style="--i:2">
+            <div class="vino-switch" role="group" aria-label="Vino de la solera">
+              <button class="chip" type="button" data-vino-elige="fino" aria-pressed="true">Fino</button>
+              <button class="chip" type="button" data-vino-elige="oloroso" aria-pressed="false">Oloroso</button>
+            </div>
+            <button class="button button--chalk" type="button" data-saca><span>Sacar la de <span data-saca-anio>2027</span></span></button>
+            <button class="textbutton" type="button" data-reinicia>Volver a 2026</button>
+          </div>
+
+          <!-- Lecturas: valores de 2026 ya escritos para la página sin script -->
+          <!-- Readouts: 2026 values already written for the no-script page -->
+          <dl class="lecturas" aria-live="polite" data-reveal style="--i:3">
+            <div><dt>Edad media de la copa</dt><dd data-lee="edad">10,0 años</dd></div>
+            <div><dt>Cosechas en la copa</dt><dd data-lee="cosechas">16, de 2007 a 2022</dd></div>
+            <div><dt>La cosecha que más pesa</dt><dd data-lee="pesa">2018, un 11 %</dd></div>
+            <div><dt>Vino de 1930 que queda</dt><dd data-lee="fundacion">ni una gota</dd></div>
+          </dl>
+          <div class="copa" aria-hidden="true" data-reveal style="--i:4">
+            <div class="copa__strip" data-copa></div>
+            <div class="copa__ends small"><span data-copa-ini>2007</span><span>La copa de este año, cosecha a cosecha</span><span data-copa-fin>2022</span></div>
+          </div>
+        </div>
+
+        <figure class="andanas" data-vino="fino" aria-label="Dibujo de las tres andanas de la solera">
+          <div class="andanas__sobre">
+            <span class="andanas__label">Sobretabla <span class="andanas__age">vino de <span data-sobre-anio>2026</span></span></span>
+            <span class="chorro" data-chorro="3"></span>
+          </div>
+
+          <div class="andana" data-fila="2">
+            <span class="andanas__label">2.ª criadera <span class="andanas__age" data-edad-fila="2">3,0 años</span></span>
+            <svg class="andana__svg" viewBox="0 0 600 100" aria-hidden="true" focusable="false">
+              <defs><clipPath id="cab-2"><circle cx="50" cy="50" r="35"/><circle cx="150" cy="50" r="35"/><circle cx="250" cy="50" r="35"/><circle cx="350" cy="50" r="35"/><circle cx="450" cy="50" r="35"/><circle cx="550" cy="50" r="35"/></clipPath></defs>
+              <g class="bota__cabeza"><circle cx="50" cy="50" r="35"/><circle cx="150" cy="50" r="35"/><circle cx="250" cy="50" r="35"/><circle cx="350" cy="50" r="35"/><circle cx="450" cy="50" r="35"/><circle cx="550" cy="50" r="35"/></g>
+              <g clip-path="url(#cab-2)"><g class="vino" data-nivel><rect class="vino__liquido" x="0" y="27" width="600" height="80"/><rect class="vino__flor" x="0" y="27" width="600" height="5"/></g></g>
+              <g class="bota__aro"><circle cx="50" cy="50" r="40"/><circle cx="150" cy="50" r="40"/><circle cx="250" cy="50" r="40"/><circle cx="350" cy="50" r="40"/><circle cx="450" cy="50" r="40"/><circle cx="550" cy="50" r="40"/></g>
+            </svg>
+          </div>
+          <div class="andanas__gap"><span class="chorro" data-chorro="2"></span></div>
+
+          <div class="andana" data-fila="1">
+            <span class="andanas__label">1.ª criadera <span class="andanas__age" data-edad-fila="1">6,0 años</span></span>
+            <svg class="andana__svg" viewBox="0 0 600 100" aria-hidden="true" focusable="false">
+              <defs><clipPath id="cab-1"><circle cx="50" cy="50" r="35"/><circle cx="150" cy="50" r="35"/><circle cx="250" cy="50" r="35"/><circle cx="350" cy="50" r="35"/><circle cx="450" cy="50" r="35"/><circle cx="550" cy="50" r="35"/></clipPath></defs>
+              <g class="bota__cabeza"><circle cx="50" cy="50" r="35"/><circle cx="150" cy="50" r="35"/><circle cx="250" cy="50" r="35"/><circle cx="350" cy="50" r="35"/><circle cx="450" cy="50" r="35"/><circle cx="550" cy="50" r="35"/></g>
+              <g clip-path="url(#cab-1)"><g class="vino" data-nivel><rect class="vino__liquido" x="0" y="27" width="600" height="80"/><rect class="vino__flor" x="0" y="27" width="600" height="5"/></g></g>
+              <g class="bota__aro"><circle cx="50" cy="50" r="40"/><circle cx="150" cy="50" r="40"/><circle cx="250" cy="50" r="40"/><circle cx="350" cy="50" r="40"/><circle cx="450" cy="50" r="40"/><circle cx="550" cy="50" r="40"/></g>
+            </svg>
+          </div>
+          <div class="andanas__gap"><span class="chorro" data-chorro="1"></span></div>
+
+          <div class="andana" data-fila="0">
+            <span class="andanas__label">Solera <span class="andanas__age" data-edad-fila="0">9,0 años</span></span>
+            <svg class="andana__svg" viewBox="0 0 600 100" aria-hidden="true" focusable="false">
+              <defs><clipPath id="cab-0"><circle cx="50" cy="50" r="35"/><circle cx="150" cy="50" r="35"/><circle cx="250" cy="50" r="35"/><circle cx="350" cy="50" r="35"/><circle cx="450" cy="50" r="35"/><circle cx="550" cy="50" r="35"/></clipPath></defs>
+              <g class="bota__cabeza"><circle cx="50" cy="50" r="35"/><circle cx="150" cy="50" r="35"/><circle cx="250" cy="50" r="35"/><circle cx="350" cy="50" r="35"/><circle cx="450" cy="50" r="35"/><circle cx="550" cy="50" r="35"/></g>
+              <g clip-path="url(#cab-0)"><g class="vino" data-nivel><rect class="vino__liquido" x="0" y="27" width="600" height="80"/><rect class="vino__flor" x="0" y="27" width="600" height="5"/></g></g>
+              <g class="bota__aro"><circle cx="50" cy="50" r="40"/><circle cx="150" cy="50" r="40"/><circle cx="250" cy="50" r="40"/><circle cx="350" cy="50" r="40"/><circle cx="450" cy="50" r="40"/><circle cx="550" cy="50" r="40"/></g>
+            </svg>
+          </div>
+          <div class="andanas__salida"><span class="chorro chorro--salida" data-chorro="0"></span><span class="andanas__label">A la botella</span></div>
+        </figure>
+      </div>
+
+      <!-- Fotos del oficio bajo la solera / Photos of the craft under the solera -->
+      <div class="solera__fotos">
+        <figure class="solera__foto" data-shutter>
+          <img src="assets/img/venencia-recorte-768.webp" width="768" height="1278" loading="lazy"
+               alt="La punta de una venencia vierte un chorro fino de vino en una copa que sostiene una mano">
+          <figcaption class="small">La venencia: se sirve desde lo alto para que el vino se abra al caer.</figcaption>
+        </figure>
+        <figure class="solera__foto" data-shutter>
+          <img src="assets/img/catavinos-bota-900.webp" width="900" height="1200" loading="lazy"
+               alt="Catavinos vacíos preparados sobre la tapa de una bota">
+          <figcaption class="small">Catavinos listos sobre una bota antes de una cata.</figcaption>
+        </figure>
+        <figure class="solera__foto" data-shutter>
+          <img src="assets/img/canoas-800.webp" width="800" height="1066"
+               alt="Canoas de metal colgadas de una columna encalada: los embudos con los que se pasa el vino de una bota a otra" loading="lazy">
+          <figcaption class="small">Canoas: los embudos con que se rocía el vino de una andana a la de abajo.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ============ LOS VINOS: placa cuadrada y texto escueto ============ -->
+    <!-- ============ THE WINES: square plate, spare text ============ -->
+    <section class="vinos" id="vinos" aria-label="Los vinos de la bodega">
+      <figure class="vinos__plate" data-shutter>
+        <img src="assets/img/velo-de-flor-1200.webp" srcset="assets/img/velo-de-flor-700.webp 700w, assets/img/velo-de-flor-1200.webp 1200w" sizes="(min-width: 48em) 50vw, 100vw" width="1200" height="800"
+             alt="Velo de flor visto de cerca dentro de una bota: una capa de levadura rugosa sobre el vino" loading="lazy">
+        <!-- Cabeza de bota con la marca de tiza del vino elegido / Cask head with the chalk mark of the chosen wine -->
+        <svg class="tiza" viewBox="0 0 100 100" aria-hidden="true" focusable="false">
+          <circle class="tiza__aro" cx="50" cy="50" r="43"/>
+          <g class="tiza__marca is-on" data-marca="fino"><path pathLength="1" d="M50 74 L50 38"/><path pathLength="1" d="M50 50 L37 31"/><path pathLength="1" d="M50 50 L63 31"/></g>
+          <g class="tiza__marca" data-marca="amontillado"><path pathLength="1" d="M40 72 L60 30"/><path pathLength="1" d="M64 70 L65 71"/></g>
+          <g class="tiza__marca" data-marca="oloroso"><path pathLength="1" d="M33 72 L49 30"/><path pathLength="1" d="M51 72 L67 30"/></g>
+          <g class="tiza__marca" data-marca="px"><path pathLength="1" d="M30 72 L30 32 L41 32 C51 32 51 50 41 50 L30 50"/><path pathLength="1" d="M57 32 L73 72"/><path pathLength="1" d="M73 32 L57 72"/></g>
+        </svg>
+        <figcaption class="small">El velo de flor sobre el vino, dentro de una bota. <span data-marca-texto>Marca de tiza en la bota: la palma, para el fino más fino.</span></figcaption>
+      </figure>
+
+      <div class="vinos__side">
+        <div class="tabs" role="tablist" aria-label="Elige un vino">
+          <button class="tab" role="tab" type="button" id="tab-fino" aria-controls="vino-fino" aria-selected="true" data-tab="fino">Fino</button>
+          <button class="tab" role="tab" type="button" id="tab-amontillado" aria-controls="vino-amontillado" aria-selected="false" tabindex="-1" data-tab="amontillado">Amontillado</button>
+          <button class="tab" role="tab" type="button" id="tab-oloroso" aria-controls="vino-oloroso" aria-selected="false" tabindex="-1" data-tab="oloroso">Oloroso</button>
+          <button class="tab" role="tab" type="button" id="tab-px" aria-controls="vino-px" aria-selected="false" tabindex="-1" data-tab="px">Pedro Ximénez</button>
+        </div>
+
+        <!-- Fichas de vino: sin script se ven las cuatro seguidas -->
+        <!-- Wine sheets: without script all four show one after another -->
+        <div class="vino-panel" role="tabpanel" id="vino-fino" aria-labelledby="tab-fino" data-panel="fino" data-marca-texto="Marca de tiza en la bota: la palma, para el fino más fino.">
+          <h2 class="head">Fino, diez años bajo flor</h2>
+          <p>Palomino de Macharnudo criado entero bajo velo de flor en tres andanas. Seco y salino, con almendra cruda y miga de pan. Se bebe frío, a siete grados, y una vez abierto aguanta una semana en la nevera.</p>
+          <dl class="ficha">
+            <div><dt>Crianza</dt><dd>Biológica</dd></div>
+            <div><dt>Edad media</dt><dd>10 años</dd></div>
+            <div><dt>Grado</dt><dd>15 % vol.</dd></div>
+            <div><dt>Botella</dt><dd>75 cl · 16 €</dd></div>
+          </dl>
+          <div class="cells">
+            <a class="cell cell--ink" href="vinos.html#fino">Ficha completa</a>
+            <a class="cell cell--tone" href="visitas.html">Probarlo en la bodega</a>
+          </div>
+        </div>
+
+        <div class="vino-panel" role="tabpanel" id="vino-amontillado" aria-labelledby="tab-amontillado" data-panel="amontillado" data-marca-texto="Marca de tiza de la casa para las botas de amontillado: raya y punto.">
+          <h2 class="head">Amontillado, dieciocho años</h2>
+          <p>Empieza como nuestro fino. Cuando la flor se agota, pasados los diez años, lo encabezamos a diecisiete grados y sigue otros ocho en una solera sin velo. Avellana tostada, yodo y un final largo y seco.</p>
+          <dl class="ficha">
+            <div><dt>Crianza</dt><dd>Biológica y oxidativa</dd></div>
+            <div><dt>Edad media</dt><dd>18 años</dd></div>
+            <div><dt>Grado</dt><dd>18 % vol.</dd></div>
+            <div><dt>Botella</dt><dd>50 cl · 28 €</dd></div>
+          </dl>
+          <div class="cells">
+            <a class="cell cell--ink" href="vinos.html#amontillado">Ficha completa</a>
+            <a class="cell cell--tone" href="visitas.html">Probarlo en la bodega</a>
+          </div>
+        </div>
+
+        <div class="vino-panel" role="tabpanel" id="vino-oloroso" aria-labelledby="tab-oloroso" data-panel="oloroso" data-marca-texto="Marca de tiza en la bota: dos rayas, las botas de oloroso.">
+          <h2 class="head">Oloroso, dieciséis años</h2>
+          <p>Lo encabezamos desde el primer día para que no crezca la flor y el aire haga su trabajo despacio. Sale caoba, con nuez, cuero y un punto de naranja amarga. Seco, aunque huela a dulce.</p>
+          <dl class="ficha">
+            <div><dt>Crianza</dt><dd>Oxidativa</dd></div>
+            <div><dt>Edad media</dt><dd>16 años</dd></div>
+            <div><dt>Grado</dt><dd>19 % vol.</dd></div>
+            <div><dt>Botella</dt><dd>50 cl · 26 €</dd></div>
+          </dl>
+          <div class="cells">
+            <a class="cell cell--ink" href="vinos.html#oloroso">Ficha completa</a>
+            <a class="cell cell--tone" href="visitas.html">Probarlo en la bodega</a>
+          </div>
+        </div>
+
+        <div class="vino-panel" role="tabpanel" id="vino-px" aria-labelledby="tab-px" data-panel="px" data-marca-texto="Marca de tiza de la casa para el Pedro Ximénez: las letras de la uva.">
+          <h2 class="head">Pedro Ximénez, doce años</h2>
+          <p>Uva Pedro Ximénez asoleada sobre esteras hasta que se vuelve pasa. El mosto se encabeza y se cría en su propia solera, la más pequeña de la casa. Higo, dátil y café; para el postre o para el queso azul.</p>
+          <dl class="ficha">
+            <div><dt>Crianza</dt><dd>Oxidativa</dd></div>
+            <div><dt>Edad media</dt><dd>12 años</dd></div>
+            <div><dt>Grado</dt><dd>15 % vol.</dd></div>
+            <div><dt>Botella</dt><dd>37,5 cl · 24 €</dd></div>
+          </dl>
+          <div class="cells">
+            <a class="cell cell--ink" href="vinos.html#px">Ficha completa</a>
+            <a class="cell cell--tone" href="visitas.html">Probarlo en la bodega</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ VISITAS: una por línea, como un cartel ============ -->
+    <!-- ============ VISITS: one per poster line ============ -->
+    <section class="visitas" id="visitas" aria-labelledby="visitas-titulo">
+      <h2 class="head visitas__titulo" id="visitas-titulo" data-reveal>Visitas y catas, de martes a sábado</h2>
+      <ul class="cartel">
+        <li data-reveal style="--i:0"><a class="cartel__row" href="visitas.html#visita-y-fino"><span class="cartel__name">Visita y fino</span><span class="cartel__fact">Mar a sáb · 12:00 · 18 €</span></a></li>
+        <li data-reveal style="--i:1"><a class="cartel__row" href="visitas.html#cata-de-cuatro"><span class="cartel__name">Cata de cuatro</span><span class="cartel__fact">Mar a sáb · 13:30 · 32 €</span></a></li>
+        <li data-reveal style="--i:2"><a class="cartel__row" href="visitas.html#venencia-en-mano"><span class="cartel__name">Venencia en mano</span><span class="cartel__fact">Sábados · 11:00 · 45 €</span></a></li>
+        <li data-reveal style="--i:3"><a class="cartel__row" href="visitas.html#oloroso-y-queso"><span class="cartel__name">Oloroso y queso</span><span class="cartel__fact">Viernes · 19:00 · 38 €</span></a></li>
+        <li data-reveal style="--i:4"><a class="cartel__row" href="visitas.html#la-sacristia"><span class="cartel__name">La sacristía</span><span class="cartel__fact">Con cita · hasta 6 · 90 €</span></a></li>
+      </ul>
+      <div class="visitas__notas">
+        <p data-reveal style="--i:5">Cada visita dura hora y media y la lleva el capataz, en español o en inglés. Grupos de doce personas como máximo. En la cata de cuatro se prueban fino, amontillado, oloroso y Pedro Ximénez, sacados con venencia de la solera.</p>
+        <p data-reveal style="--i:6">«Venencia en mano» es un taller: aprende a venenciar con agua y luego con fino. «La sacristía» abre las botas más viejas de la casa, que no se venden. Los menores entran gratis acompañados y no prueban vino: para ellos hay zumo de uva.</p>
+      </div>
+    </section>
+
+    <!-- ============ DÓNDE: la dirección en filas grandes ============ -->
+    <!-- ============ WHERE: the address in display rows ============ -->
+    <section class="donde" id="donde" aria-labelledby="donde-titulo">
+      <div class="fila fila--a">
+        <h2 class="fila__text" id="donde-titulo">Bodega Bota Chica</h2>
+        <img class="fila__foto" src="assets/img/albariza-600.webp" width="600" height="450" loading="lazy"
+             alt="Viñas de palomino sobre tierra albariza, blanca y agrietada">
+      </div>
+      <div class="fila fila--b"><a class="fila__text fila__link" href="contacto.html#mapa">Calle Cinco Sextos, 9</a></div>
+      <div class="fila fila--a"><p class="fila__text">11403 Jerez de la Frontera</p></div>
+      <div class="fila fila--b"><p class="fila__text">Mar a sáb<span class="fila__br"> </span>de 11 a 19 h</p></div>
+      <div class="fila fila--saludo">
+        <p class="fila__text">Escríbenos</p>
+        <a class="redondo" href="contacto.html" aria-label="Escribir a la bodega desde el formulario de contacto">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 12h13M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </section>
+
+  </main>
+  <!-- ============ PIE: invitación, enlaces y nombre entero ============ -->
+  <!-- ============ FOOTER: invitation, links and the whole name ============ -->
+  <footer class="pie">
+    <div class="pie__top">
+      <div class="pie__invita">
+        <h2 class="big lines pie__frase" data-reveal>
+          <span class="line"><span data-line style="--i:0">Ven a sacar</span></span>
+          <span class="line"><span data-line style="--i:1">tu copa</span></span>
+        </h2>
+        <a class="button button--chalk" href="visitas.html" data-reveal style="--i:2">Ver visitas y catas</a>
+      </div>
+      <nav class="pie__links" aria-label="Pie" data-reveal style="--i:3">
+        <ul>
+          <li><a class="link" href="vinos.html">Vinos</a></li>
+          <li><a class="link" href="visitas.html">Visitas y catas</a></li>
+          <li><a class="link" href="sobre-nosotros.html">Nosotros</a></li>
+          <li><a class="link" href="contacto.html">Contacto y cómo llegar</a></li>
+          <li><a class="link" href="mailto:hola@botachica.example">hola@botachica.example</a></li>
+        </ul>
+      </nav>
+    </div>
+    <!-- Base del pie: el nombre entero a la izquierda y lo legal a la derecha -->
+    <!-- Footer base: the whole name on the left, the legal lines on the right -->
+    <div class="pie__base">
+      <p class="mark mark--pie" aria-hidden="true" data-mark="pie"><span class="mark__word">Bota Chica</span></p>
+      <div class="pie__legal small">
+        <p>Marca ficticia. <a class="link" href="https://danimefle.com">Web de demostración de danimefle.com</a>.</p>
+        <p>Disfruta del vino con moderación. No se sirve alcohol a menores de 18 años.</p>
+        <ul class="pie__legales">
+          <li><a class="link" href="aviso-legal.html">Aviso legal</a></li>
+          <li><a class="link" href="privacidad.html">Privacidad</a></li>
+          <li><a class="link" href="cookies.html">Cookies</a></li>
+          <li><a class="link" href="creditos.html">Créditos</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,199 @@
+<!doctype html>
+<!--
+  creditos.html: Créditos · Bodega Bota Chica
+  Web de demostración de una bodega ficticia de vino de Jerez. HTML, CSS y JS en ficheros propios (la CSP no deja código en línea).
+  Demo website for a fictional sherry bodega. HTML, CSS and JS in their own files (the CSP forbids inline code).
+-->
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Créditos · Bodega Bota Chica</title>
+  <meta name="description" content="Créditos de las fotografías, fuentes y código de la web de demostración de Bodega Bota Chica.">
+  <!-- Marca ficticia: no debe salir en buscadores / Fictional brand: keep it out of search engines -->
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://botachica.danimefle.com/creditos.html">
+  <meta name="theme-color" content="#e4e2dd">
+  <!-- Open Graph y Twitter / Open Graph and Twitter -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:site_name" content="Bodega Bota Chica">
+  <meta property="og:title" content="Créditos · Bodega Bota Chica">
+  <meta property="og:description" content="Créditos de las fotografías, fuentes y código de la web de demostración de Bodega Bota Chica.">
+  <meta property="og:url" content="https://botachica.danimefle.com/creditos.html">
+  <meta property="og:image" content="https://botachica.danimefle.com/assets/og/legal.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Créditos · Bodega Bota Chica">
+  <meta name="twitter:description" content="Créditos de las fotografías, fuentes y código de la web de demostración de Bodega Bota Chica.">
+  <meta name="twitter:image" content="https://botachica.danimefle.com/assets/og/legal.jpg">
+  <!-- Iconos y manifiesto / Icons and manifest -->
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <!-- Fuentes locales precargadas / Local fonts preloaded -->
+  <link rel="preload" href="assets/fonts/anton-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/work-sans-var-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/bota-chica.css">
+  <!-- Marca html.js antes de pintar / Marks html.js before paint -->
+  <script src="assets/js/early.js"></script>
+  <script src="assets/js/bota-chica.js" defer></script>
+  <!-- Analítica sin cookies / Cookieless analytics -->
+  <script defer data-domain="botachica.danimefle.com" src="https://analytics.danimefle.com/js/script.js"></script>
+</head>
+<body>
+  <a class="saltar" href="#contenido">Saltar al contenido</a>
+  <!-- ============ BARRA: nombre y navegación / BAR: name and navigation ============ -->
+  <header class="barra">
+    <div class="barra__in">
+      <a class="barra__marca" href="index.html" aria-label="Bodega Bota Chica, portada">Bota Chica</a>
+      <nav class="nav nav--barra" aria-label="Principal">
+        <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="nav-lista">Menú</button>
+        <ul class="nav__list" id="nav-lista">
+          <li><a class="nav__link" href="vinos.html">Vinos</a></li>
+          <li><a class="nav__link" href="visitas.html">Visitas</a></li>
+          <li><a class="nav__link" href="sobre-nosotros.html">Nosotros</a></li>
+          <li><a class="nav__link" href="contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main id="contenido" class="prosa-pagina">
+    <div class="prosa">
+    <h1 class="display prosa__titulo">Créditos</h1>
+    <p class="prosa__lead">Las fotografías vienen de Wikimedia Commons y muestran el mundo del vino de Jerez; ninguna es de esta bodega, que es ficticia. Se han recortado y convertido a WebP; la placa de vinos de la portada y la banda de la página de visitas se muestran en escala de grises. Las versiones recortadas de las imágenes CC BY-SA se comparten con la misma licencia.</p>
+    <h2 class="head" data-reveal>Fotografías</h2>
+    <div class="tabla-envoltura">
+      <table class="tabla tabla--cred">
+        <caption class="sr-only">Cada imagen con su original, autor y licencia</caption>
+        <thead><tr><th scope="col"><span class="sr-only">Miniatura</span></th><th scope="col">Uso en la web</th><th scope="col">Original</th><th scope="col">Autor</th><th scope="col">Licencia</th></tr></thead>
+        <tbody>
+        <tr>
+          <td><img class="cred__mini" src="assets/img/bodega-nave-960.webp" width="96" height="72" loading="lazy" alt=""></td>
+          <th scope="row">Nave de bodega (portada)</th>
+          <td><a class="link link--en-texto" href="https://commons.wikimedia.org/wiki/File:Lustau_004An2019.jpg">Lustau 004An2019</a></td>
+          <td>Anual</td>
+          <td><a class="link link--en-texto" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></td>
+        </tr>
+        <tr>
+          <td><img class="cred__mini" src="assets/img/tres-andanas-960.webp" width="96" height="72" loading="lazy" alt=""></td>
+          <th scope="row">Tres andanas</th>
+          <td><a class="link link--en-texto" href="https://commons.wikimedia.org/wiki/File:Lustau2018016.jpg">Lustau2018016</a></td>
+          <td>Anual</td>
+          <td><a class="link link--en-texto" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></td>
+        </tr>
+        <tr>
+          <td><img class="cred__mini" src="assets/img/velo-de-flor-700.webp" width="96" height="72" loading="lazy" alt=""></td>
+          <th scope="row">Velo de flor</th>
+          <td><a class="link link--en-texto" href="https://commons.wikimedia.org/wiki/File:Velo_de_Flor.jpg">Velo de Flor</a></td>
+          <td>Caballero 1830</td>
+          <td><a class="link link--en-texto" href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a></td>
+        </tr>
+        <tr>
+          <td><img class="cred__mini" src="assets/img/venencia-recorte-768.webp" width="96" height="72" loading="lazy" alt=""></td>
+          <th scope="row">Venencia y copa (recorte sin la persona)</th>
+          <td><a class="link link--en-texto" href="https://commons.wikimedia.org/w/index.php?curid=5029191">Venenciadora serving Sherry</a></td>
+          <td>Jesus Solana</td>
+          <td><a class="link link--en-texto" href="https://creativecommons.org/licenses/by/2.0/">CC BY 2.0</a></td>
+        </tr>
+        <tr>
+          <td><img class="cred__mini" src="assets/img/canoas-800.webp" width="96" height="72" loading="lazy" alt=""></td>
+          <th scope="row">Canoas</th>
+          <td><a class="link link--en-texto" href="https://commons.wikimedia.org/wiki/File:Canoas_bodega_sanl%C3%BAcar_brrameda.jpg">Canoas bodega sanlúcar brrameda</a></td>
+          <td>Antonio M. Romero Dorado</td>
+          <td><a class="link link--en-texto" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></td>
+        </tr>
+        <tr>
+          <td><img class="cred__mini" src="assets/img/albariza-600.webp" width="96" height="72" loading="lazy" alt=""></td>
+          <th scope="row">Viñas sobre albariza</th>
+          <td><a class="link link--en-texto" href="https://commons.wikimedia.org/w/index.php?curid=69319822">Viñedos en albariza de Jerez - P1240123</a></td>
+          <td>El Pantera</td>
+          <td><a class="link link--en-texto" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></td>
+        </tr>
+        <tr>
+          <td><img class="cred__mini" src="assets/img/copita-fino-900.webp" width="96" height="72" loading="lazy" alt=""></td>
+          <th scope="row">Copa de fino</th>
+          <td><a class="link link--en-texto" href="https://commons.wikimedia.org/wiki/File:Copita_de_fino-2009.jpg">Copita de fino-2009</a></td>
+          <td>Tamorlan</td>
+          <td><a class="link link--en-texto" href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a></td>
+        </tr>
+        <tr>
+          <td><img class="cred__mini" src="assets/img/catavinos-bota-900.webp" width="96" height="72" loading="lazy" alt=""></td>
+          <th scope="row">Catavinos sobre una bota</th>
+          <td><a class="link link--en-texto" href="https://commons.wikimedia.org/wiki/File:Catavinos.jpg">Catavinos</a></td>
+          <td>Senormunoz</td>
+          <td><a class="link link--en-texto" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></td>
+        </tr>
+        <tr>
+          <td><img class="cred__mini" src="assets/img/catavino-sol-768.webp" width="96" height="72" loading="lazy" alt=""></td>
+          <th scope="row">Catavino al sol (recorte sin la botella)</th>
+          <td><a class="link link--en-texto" href="https://commons.wikimedia.org/wiki/File:Catavino_con_vino_fino_de_Chiclana.jpg">Catavino con vino fino de Chiclana</a></td>
+          <td>PEPE GADEIRAS</td>
+          <td><a class="link link--en-texto" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></td>
+        </tr>
+        <tr>
+          <td><img class="cred__mini" src="assets/img/lamina-palomino-900.webp" width="96" height="72" loading="lazy" alt=""></td>
+          <th scope="row">Lámina de palomino</th>
+          <td><a class="link link--en-texto" href="https://commons.wikimedia.org/wiki/File:Pomological_Watercolor_POM00006300.jpg">Pomological Watercolor POM00006300 (1900)</a></td>
+          <td>Bertha Heiges (USDA)</td>
+          <td><a class="link link--en-texto" href="https://creativecommons.org/publicdomain/mark/1.0/">Dominio público</a></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <h2 class="head" data-reveal>Dibujos</h2>
+    <p data-reveal>Las botas de la solera, las marcas de tiza, el plano y el icono están dibujados en SVG para esta web.</p>
+    <h2 class="head" data-reveal>Fuentes</h2>
+    <p data-reveal>Anton, de Vernon Adams, y Work Sans, de Wei Huang, con licencia <a class="link link--en-texto" href="https://openfontlicense.org">SIL Open Font License 1.1</a>. Se sirven desde la propia web, sin llamadas a terceros.</p>
+    <h2 class="head" data-reveal>Código</h2>
+    <p data-reveal>HTML, CSS y JavaScript escritos a mano, sin librerías, con licencia MIT.</p>
+    </div>
+    <aside class="prosa__tira" aria-label="Fotos de la nave">
+      <figure data-shutter><img src="assets/img/bodega-nave-960.webp" width="960" height="640" loading="lazy" alt="Pasillo de una nave de bodega entre dos hileras de botas"></figure>
+      <figure data-shutter><img src="assets/img/velo-de-flor-700.webp" width="700" height="466" loading="lazy" alt="Velo de flor sobre el vino dentro de una bota"></figure>
+      <figure data-shutter><img src="assets/img/tres-andanas-960.webp" width="960" height="640" loading="lazy" alt="Tres filas de botas apiladas bajo arcos encalados"></figure>
+      <figure data-shutter><img src="assets/img/venencia-recorte-768.webp" width="768" height="1278" loading="lazy" alt="La punta de una venencia vierte vino en una copa"></figure>
+    </aside>
+  </main>
+  <!-- ============ PIE: invitación, enlaces y nombre entero ============ -->
+  <!-- ============ FOOTER: invitation, links and the whole name ============ -->
+  <footer class="pie">
+    <div class="pie__top">
+      <div class="pie__invita">
+        <h2 class="big lines pie__frase" data-reveal>
+          <span class="line"><span data-line style="--i:0">Ven a sacar</span></span>
+          <span class="line"><span data-line style="--i:1">tu copa</span></span>
+        </h2>
+        <a class="button button--chalk" href="visitas.html" data-reveal style="--i:2">Ver visitas y catas</a>
+      </div>
+      <nav class="pie__links" aria-label="Pie" data-reveal style="--i:3">
+        <ul>
+          <li><a class="link" href="vinos.html">Vinos</a></li>
+          <li><a class="link" href="visitas.html">Visitas y catas</a></li>
+          <li><a class="link" href="sobre-nosotros.html">Nosotros</a></li>
+          <li><a class="link" href="contacto.html">Contacto y cómo llegar</a></li>
+          <li><a class="link" href="mailto:hola@botachica.example">hola@botachica.example</a></li>
+        </ul>
+      </nav>
+    </div>
+    <!-- Base del pie: el nombre entero a la izquierda y lo legal a la derecha -->
+    <!-- Footer base: the whole name on the left, the legal lines on the right -->
+    <div class="pie__base">
+      <p class="mark mark--pie" aria-hidden="true" data-mark="pie"><span class="mark__word">Bota Chica</span></p>
+      <div class="pie__legal small">
+        <p>Marca ficticia. <a class="link" href="https://danimefle.com">Web de demostración de danimefle.com</a>.</p>
+        <p>Disfruta del vino con moderación. No se sirve alcohol a menores de 18 años.</p>
+        <ul class="pie__legales">
+          <li><a class="link" href="aviso-legal.html">Aviso legal</a></li>
+          <li><a class="link" href="privacidad.html">Privacidad</a></li>
+          <li><a class="link" href="cookies.html">Cookies</a></li>
+          <li><a class="link" href="creditos.html">Créditos</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

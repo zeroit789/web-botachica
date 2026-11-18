@@ -1,0 +1,6 @@
+# robots.txt: web de demostración de una marca ficticia; las páginas llevan noindex.
+# robots.txt: demo site for a fictional brand; pages carry noindex.
+User-agent: *
+Allow: /
+
+Sitemap: https://botachica.danimefle.com/sitemap.xml
