@@ -26,7 +26,19 @@
         io.unobserve(entry.target);
       }
     }, { rootMargin: '0px 0px -10% 0px', threshold: 0.08 });
-    revealTargets.forEach((el) => io.observe(el));
+    // Si la página ya se pintó con contenido (el script llegó tarde), lo que está en pantalla se queda
+    // visible y no se vigila, para que no parpadee; si aún no se pintó, todo entra animado como siempre
+    // If the page already painted content (the script arrived late), what is on screen stays visible
+    // and is not watched, so it does not flicker; if nothing was painted yet, everything animates in as usual
+    const painted = !performance.getEntriesByName || performance.getEntriesByName('first-contentful-paint').length > 0;
+    revealTargets.forEach((el) => {
+      const r = el.getBoundingClientRect();
+      if (painted && r.top < innerHeight && r.bottom > 0) el.classList.add('is-in');
+      else io.observe(el);
+    });
+    // Solo ahora, con el observador puesto, el CSS puede ocultar lo que aún no ha entrado
+    // Only now, with the observer in place, may the CSS hide what has not entered yet
+    document.documentElement.classList.add('reveal-ready');
     // Red de seguridad: lo que esté en pantalla tras la carga se muestra igualmente
     // Safety net: whatever is on screen after load is shown anyway
     window.addEventListener('load', () => setTimeout(() => {
@@ -81,8 +93,10 @@
 
   /* ---------- 3. Menú del móvil ---------- */
   /* ---------- 3. Phone menu ---------- */
-  // Sin script los enlaces se ven siempre; el CSS solo los pliega bajo html.js
-  // Without script the links are always visible; the CSS only folds them under html.js
+  // Sin script los enlaces se ven siempre; el CSS solo los pliega bajo html.nav-ready, que se pone
+  // al final, con todos los manejadores del menú ya instalados
+  // Without script the links are always visible; the CSS only folds them under html.nav-ready, set
+  // at the end, with every menu handler already installed
   const nav = document.querySelector('.nav');
   const toggle = document.querySelector('.nav__toggle');
   if (nav && toggle) {
@@ -126,9 +140,32 @@
     });
     // Un clic fuera del menú lo cierra / A click outside the menu closes it
     document.addEventListener('click', (e) => { if (isOpen() && !nav.contains(e.target)) setOpen(false, false); });
-    // Al pasar a escritorio con el menú abierto, se cierra y se suelta el foco
-    // When moving to desktop with the menu open, it closes and focus is released
-    phone.addEventListener('change', () => { if (!phone.matches && isOpen()) setOpen(false, false); });
+    // Al cruzar el punto de corte (la misma media query que el CSS), el menú abierto se cierra y el
+    // foco nunca se queda en algo oculto: en escritorio el botón desaparece y el foco pasa al primer
+    // enlace; en el móvil la lista se pliega y el foco pasa al botón.
+    // When crossing the breakpoint (the same media query as the CSS), an open menu closes and focus
+    // never stays on something hidden: on desktop the button disappears and focus moves to the first
+    // link; on the phone the list folds and focus moves to the button.
+    // El navegador puede quitar el foco de lo que se oculta antes de avisar del cambio (queda en body):
+    // se recuerda el último elemento enfocado; un clic con el puntero lo olvida
+    // The browser may drop focus from what hides before reporting the change (it lands on body): the
+    // last focused element is remembered; a pointer click forgets it
+    let lastFocus = null;
+    document.addEventListener('focusin', (e) => { lastFocus = e.target; });
+    document.addEventListener('pointerdown', () => { lastFocus = null; });
+    phone.addEventListener('change', () => {
+      let active = document.activeElement;
+      if (!active || active === document.body) active = lastFocus;
+      if (!active) return;
+      const inMenu = nav.contains(active);
+      if (!phone.matches && isOpen()) setOpen(false, false);
+      if (!inMenu || active.getClientRects().length) return;
+      if (phone.matches) toggle.focus();
+      else if (links[0]) links[0].focus();
+    });
+    // Manejadores listos: ahora el CSS ya puede plegar el menú en el móvil
+    // Handlers ready: the CSS may now fold the menu on the phone
+    document.documentElement.classList.add('nav-ready');
   }
 
   /* ---------- 3b. Formulario de contacto: valida y prepara un borrador de correo ---------- */
@@ -172,9 +209,13 @@
       window.location.href = `mailto:${to}?subject=${encodeURIComponent('Consulta: ' + v('f-motivo'))}&body=${encodeURIComponent(body)}`;
       estado.textContent = `Hemos intentado abrir tu programa de correo con un borrador del mensaje. Si no se ha abierto, tu texto sigue aquí y puedes copiarlo. Es una web de demostración y ${to} es una dirección de ejemplo: nadie lo recibirá.`;
     });
-    // El botón sale desactivado en el HTML y solo se activa con el manejador ya puesto
-    // The button ships disabled in the HTML and is only enabled once the handler is in place
+    // El botón sale desactivado en el HTML y solo se activa con el manejador ya puesto; entonces
+    // sobra el aviso de «sin JavaScript», que se ve por defecto
+    // The button ships disabled in the HTML and is only enabled once the handler is in place; then
+    // the "no JavaScript" note, visible by default, is no longer needed
     if (enviar) enviar.disabled = false;
+    const nojs = document.getElementById('form-nojs');
+    if (nojs) nojs.hidden = true;
   }
 
   /* ---------- 4. Pestañas de vinos con su marca de tiza ---------- */
@@ -227,6 +268,9 @@
         showWine(tabs[(i + step + tabs.length) % tabs.length].dataset.tab, true);
       });
     });
+    // Pestañas listas: los paneles ya no se apilan, así que sobra su separación
+    // Tabs ready: the panels no longer stack, so their spacing goes
+    document.documentElement.classList.add('tabs-ready');
   }
 
   /* ---------- 5. La solera: sacar de abajo y rociar desde arriba ---------- */
@@ -373,4 +417,6 @@
   if (resetBtn) resetBtn.addEventListener('click', () => restart(state.wine));
   wineBtns.forEach((b) => b.addEventListener('click', () => restart(b.dataset.vinoElige)));
   restart('fino');
+  // Con todo conectado, los controles de la solera se muestran / With everything wired, the solera controls show
+  if (controls) controls.classList.add('is-ready');
 })();

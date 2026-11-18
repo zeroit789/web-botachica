@@ -21,7 +21,7 @@ const TYPES = {
   '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=utf-8', '.js': 'text/javascript; charset=utf-8',
   '.webp': 'image/webp', '.jpg': 'image/jpeg', '.png': 'image/png', '.svg': 'image/svg+xml',
   '.woff2': 'font/woff2', '.xml': 'application/xml; charset=utf-8', '.txt': 'text/plain; charset=utf-8',
-  '.webmanifest': 'application/manifest+json; charset=utf-8',
+  '.webmanifest': 'application/manifest+json; charset=utf-8', '.ico': 'image/x-icon',
 };
 
 // Lee las cabeceras del bloque «/*» de _headers / Reads the headers of the "/*" block in _headers
@@ -76,7 +76,13 @@ const server = http.createServer((req, res) => {
     let file = resolveFile(urlPath);
     if (file === null) { fail(res, 403); return; }
     let status = 200;
-    if (file === undefined) { file = path.join(ROOT, '404.html'); status = 404; }
+    // La página 404 pasa por la misma comprobación de ruta real; si no vale, 404 de texto
+    // The 404 page goes through the same real-path check; if it fails, a plain-text 404
+    if (file === undefined) {
+      file = resolveFile('/404.html');
+      status = 404;
+      if (!file) { fail(res, 404); return; }
+    }
     fs.readFile(file, (err, data) => {
       if (err) { fail(res, 500); return; }
       res.writeHead(status, { ...HEADERS, 'Content-Type': TYPES[path.extname(file)] || 'application/octet-stream' });

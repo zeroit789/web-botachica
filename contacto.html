@@ -120,7 +120,9 @@
             <p class="campo__error" id="e-edad" hidden>Marca la casilla: las catas son solo para mayores de edad.</p>
           </div>
           <button class="button" type="submit" disabled>Preparar el correo</button>
-          <noscript><p class="form__nojs">Sin JavaScript el botón no hace nada. Puedes escribir directamente a <a class="link link--en-texto" href="mailto:hola@botachica.example">hola@botachica.example</a> (dirección de ejemplo).</p></noscript>
+          <!-- Aviso visible por defecto: el script lo oculta al activar el botón (también sale si el script falla) -->
+          <!-- Note visible by default: the script hides it when enabling the button (it also shows if the script fails) -->
+          <p class="form__nojs" id="form-nojs">Sin JavaScript el botón no hace nada. Puedes escribir directamente a <a class="link link--en-texto" href="mailto:hola@botachica.example">hola@botachica.example</a> (dirección de ejemplo).</p>
           <p class="form__estado" id="form-estado" role="status" aria-live="polite"></p>
         </form>
       </section>

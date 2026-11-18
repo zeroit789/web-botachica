@@ -200,7 +200,7 @@ p { max-width: 62ch; text-wrap: pretty; }
 .solera__text { grid-column: 1 / span 5; }
 .solera__text > p { margin-top: 1.25rem; color: var(--on-wood); }
 .solera__controls { display: none; flex-wrap: wrap; align-items: center; gap: 0.75rem 1rem; margin-top: 2rem; }
-.js .solera__controls { display: flex; }
+.solera__controls.is-ready { display: flex; }
 .vino-switch { display: flex; }
 .chip { min-height: 3rem; padding: 0 1.1rem; background: var(--wood-2); color: var(--on-wood); font-weight: 600; transition: background-color var(--t-hover) ease, color var(--t-hover) ease, transform var(--t-press) var(--ease-out); }
 .chip[aria-pressed="true"] { background: var(--on-wood); color: var(--wood); }
@@ -280,7 +280,7 @@ p { max-width: 62ch; text-wrap: pretty; }
 .vino-panel { display: flex; flex-direction: column; gap: 1.5rem; }
 .vino-panel[hidden] { display: none; }
 .vino-panel + .vino-panel { margin-top: 3rem; }
-.js .vino-panel + .vino-panel { margin-top: 0; }
+.tabs-ready .vino-panel + .vino-panel { margin-top: 0; }
 .vino-panel > p { max-width: 40ch; }
 .vino-panel.is-entering { animation: panel-in 520ms var(--ease-out); }
 @keyframes panel-in { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
@@ -381,10 +381,10 @@ p { max-width: 62ch; text-wrap: pretty; }
   .mark { font-size: var(--fit); padding-bottom: 0.08em; }
   .hero .mark { --fit: calc((100vw - 2 * var(--margin)) / 2.02); line-height: 0.84; }
   .hero .mark__salto { display: block; }
-  .js .nav__toggle { display: inline-flex; align-items: center; }
-  .js .nav__list { display: none; position: absolute; right: 0; top: 3rem; flex-direction: column; gap: 0; background: var(--ink); min-width: 12rem; }
-  .js .nav.is-open .nav__list { display: flex; }
-  .js .nav__link { display: block; padding: 0.85rem 1.1rem; font-size: 1rem; color: var(--accent-ink); }
+  .nav-ready .nav__toggle { display: inline-flex; align-items: center; }
+  .nav-ready .nav__list { display: none; position: absolute; right: 0; top: 3rem; flex-direction: column; gap: 0; background: var(--ink); min-width: 12rem; }
+  .nav-ready .nav.is-open .nav__list { display: flex; }
+  .nav-ready .nav__link { display: block; padding: 0.85rem 1.1rem; font-size: 1rem; color: var(--accent-ink); }
   /* Sin JavaScript los enlaces se quedan a la vista, en fila / Without JavaScript the links stay visible, in a row */
   .nav__list { flex-wrap: wrap; justify-content: flex-end; gap: 0.25rem 1rem; }
   .nav__link { display: inline-block; padding-block: 0.3rem; }
@@ -444,8 +444,12 @@ p { max-width: 62ch; text-wrap: pretty; }
 }
 
 /* ============ MOVIMIENTO / MOTION ============ */
-/* Todos los estados ocultos viven aquí dentro: con movimiento reducido la página ya está terminada */
-/* Every hidden state lives in here: with reduced motion the page is already finished */
+/* Todos los estados ocultos viven aquí dentro: con movimiento reducido la página ya está terminada.
+   La carga del héroe va bajo .js (sus animaciones acaban siempre visibles); las entradas, bajo
+   .reveal-ready, que pone bota-chica.js con el observador ya puesto: si ese script falla, todo se ve. */
+/* Every hidden state lives in here: with reduced motion the page is already finished.
+   The hero load sits under .js (its animations always end visible); entrances sit under
+   .reveal-ready, set by bota-chica.js once the observer is in place: if that script fails, everything shows. */
 @media (prefers-reduced-motion: no-preference) {
   /* Carga: la foto se asienta, la fila de texto sube / Load: the photo settles, the text row rises */
   .js .hero__photo img { animation: asienta 1400ms var(--ease-soft) both; }
@@ -453,42 +457,42 @@ p { max-width: 62ch; text-wrap: pretty; }
   .js .hero .mark__inner { display: block; animation: monumento 1000ms var(--ease-expo) both; }
 
   /* Entradas por sección / Section entrances */
-  .js [data-reveal] { opacity: 0; transform: translateY(24px); transition: opacity 700ms var(--ease-out), transform 900ms var(--ease-out); transition-delay: calc(var(--i, 0) * 80ms); }
-  .js [data-reveal].is-in { opacity: 1; transform: none; }
-  .js .lines [data-line] { transform: translateY(105%); transition: transform 900ms var(--ease-expo); transition-delay: calc(var(--i, 0) * 110ms); }
-  .js .is-in .lines [data-line], .js .lines.is-in [data-line], .js .is-in.lines [data-line] { transform: none; }
-  .js .step[data-reveal] { opacity: 1; transform: none; }
-  .js .step .step__text { opacity: 0; transform: translateY(16px); transition: opacity 700ms var(--ease-out) 260ms, transform 800ms var(--ease-out) 260ms; }
-  .js .step.is-in .step__text { opacity: 1; transform: none; }
+  .reveal-ready [data-reveal] { opacity: 0; transform: translateY(24px); transition: opacity 700ms var(--ease-out), transform 900ms var(--ease-out); transition-delay: calc(var(--i, 0) * 80ms); }
+  .reveal-ready [data-reveal].is-in { opacity: 1; transform: none; }
+  .reveal-ready .lines [data-line] { transform: translateY(105%); transition: transform 900ms var(--ease-expo); transition-delay: calc(var(--i, 0) * 110ms); }
+  .reveal-ready .is-in .lines [data-line], .reveal-ready .lines.is-in [data-line], .reveal-ready .is-in.lines [data-line] { transform: none; }
+  .reveal-ready .step[data-reveal] { opacity: 1; transform: none; }
+  .reveal-ready .step .step__text { opacity: 0; transform: translateY(16px); transition: opacity 700ms var(--ease-out) 260ms, transform 800ms var(--ease-out) 260ms; }
+  .reveal-ready .step.is-in .step__text { opacity: 1; transform: none; }
 
   /* Las listas del cartel entran de lado / Poster rows slide in sideways */
-  .js .cartel [data-reveal] { transform: translateX(-32px); }
-  .js .cartel [data-reveal].is-in { transform: none; }
+  .reveal-ready .cartel [data-reveal] { transform: translateX(-32px); }
+  .reveal-ready .cartel [data-reveal].is-in { transform: none; }
 
   /* Las filas de dirección se rellenan de izquierda a derecha / Address rows fill left to right */
-  .js .donde .fila { opacity: 0; transform: translateY(16px); transition: opacity 600ms var(--ease-out), transform 700ms var(--ease-out); }
-  .js .donde.is-in .fila { opacity: 1; transform: none; }
-  .js .donde.is-in .fila:nth-child(2) { transition-delay: 60ms; }
-  .js .donde.is-in .fila:nth-child(3) { transition-delay: 120ms; }
-  .js .donde.is-in .fila:nth-child(4) { transition-delay: 180ms; }
-  .js .donde.is-in .fila:nth-child(5) { transition-delay: 240ms; }
-  .js .donde.is-in .fila:nth-child(6) { transition-delay: 300ms; }
+  .reveal-ready .donde .fila { opacity: 0; transform: translateY(16px); transition: opacity 600ms var(--ease-out), transform 700ms var(--ease-out); }
+  .reveal-ready .donde.is-in .fila { opacity: 1; transform: none; }
+  .reveal-ready .donde.is-in .fila:nth-child(2) { transition-delay: 60ms; }
+  .reveal-ready .donde.is-in .fila:nth-child(3) { transition-delay: 120ms; }
+  .reveal-ready .donde.is-in .fila:nth-child(4) { transition-delay: 180ms; }
+  .reveal-ready .donde.is-in .fila:nth-child(5) { transition-delay: 240ms; }
+  .reveal-ready .donde.is-in .fila:nth-child(6) { transition-delay: 300ms; }
 
   /* Obturador para las fotos / Shutter for photographs */
   /* El marco de la panorámica se abre; las fotos sueltas aparecen y se asientan (un recorte en la propia
      imagen impediría su carga diferida) */
   /* The panorama frame opens; single photos fade in and settle (a clip on the image itself would block
      its lazy loading) */
-  .js [data-shutter] .intro__frame { clip-path: inset(0 0 100% 0); transition: clip-path 1100ms var(--ease-in-out); }
-  .js [data-shutter].is-in .intro__frame { clip-path: inset(0); }
-  .js [data-shutter] > img { opacity: 0; transform: scale(1.05); transition: opacity 900ms var(--ease-out), transform 1400ms var(--ease-soft); }
-  .js [data-shutter].is-in > img { opacity: 1; transform: none; }
+  .reveal-ready [data-shutter] .intro__frame { clip-path: inset(0 0 100% 0); transition: clip-path 1100ms var(--ease-in-out); }
+  .reveal-ready [data-shutter].is-in .intro__frame { clip-path: inset(0); }
+  .reveal-ready [data-shutter] > img { opacity: 0; transform: scale(1.05); transition: opacity 900ms var(--ease-out), transform 1400ms var(--ease-soft); }
+  .reveal-ready [data-shutter].is-in > img { opacity: 1; transform: none; }
 
   /* Las botas aparecen fila a fila / The casks appear row by row */
-  .js .andana .andana__svg { opacity: 0; transform: translateY(18px); transition: opacity 600ms var(--ease-out), transform 800ms var(--ease-out); }
-  .js .andanas.is-in .andana .andana__svg { opacity: 1; transform: none; }
-  .js .andanas.is-in .andana[data-fila="1"] .andana__svg { transition-delay: 120ms; }
-  .js .andanas.is-in .andana[data-fila="0"] .andana__svg { transition-delay: 240ms; }
+  .reveal-ready .andana .andana__svg { opacity: 0; transform: translateY(18px); transition: opacity 600ms var(--ease-out), transform 800ms var(--ease-out); }
+  .reveal-ready .andanas.is-in .andana .andana__svg { opacity: 1; transform: none; }
+  .reveal-ready .andanas.is-in .andana[data-fila="1"] .andana__svg { transition-delay: 120ms; }
+  .reveal-ready .andanas.is-in .andana[data-fila="0"] .andana__svg { transition-delay: 240ms; }
 }
 @media (prefers-reduced-motion: reduce) {
   .vino, .tiza__marca path, .copa__strip span, .cartel__row::before { transition: none; }
