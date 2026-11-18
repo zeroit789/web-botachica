@@ -19,19 +19,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
----
-
-Esta licencia cubre solo el código (HTML, CSS, JavaScript y los dibujos SVG).
-This licence covers the code only (HTML, CSS, JavaScript and the SVG drawings).
-
-- Las fotografías de assets/img/ tienen cada una su propia licencia (CC BY 2.0,
-  CC BY-SA 3.0, CC BY-SA 4.0 o dominio público): ver creditos.html y CREDITOS.md.
-  The photographs in assets/img/ each keep their own licence (CC BY 2.0,
-  CC BY-SA 3.0, CC BY-SA 4.0 or public domain): see creditos.html and CREDITOS.md.
-- Las fuentes Anton y Work Sans de assets/fonts/ se distribuyen con la
-  SIL Open Font License 1.1.
-  The Anton and Work Sans fonts in assets/fonts/ are distributed under the
-  SIL Open Font License 1.1.
-- «Bodega Bota Chica» es una marca ficticia creada para esta demostración.
-  "Bodega Bota Chica" is a fictional brand created for this demo.

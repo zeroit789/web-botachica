@@ -74,6 +74,9 @@ const server = http.createServer((req, res) => {
     try { urlPath = decodeURIComponent(new URL(req.url, `http://${HOST}`).pathname); }
     catch { fail(res, 400); return; }
     let file = resolveFile(urlPath);
+    // Como Cloudflare Pages, /visitas sirve visitas.html (las URL canónicas van sin .html)
+    // Like Cloudflare Pages, /visitas serves visitas.html (canonical URLs have no .html)
+    if (file === undefined && !path.extname(urlPath) && !urlPath.endsWith('/')) file = resolveFile(urlPath + '.html');
     if (file === null) { fail(res, 403); return; }
     let status = 200;
     // La página 404 pasa por la misma comprobación de ruta real; si no vale, 404 de texto

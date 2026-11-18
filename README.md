@@ -65,7 +65,7 @@ También se puede abrir `index.html` directamente en el navegador; en ese caso n
 
 ### Créditos y licencias
 
-- Código: MIT (ver `LICENSE`).
+- Código: MIT (ver `LICENSE`). Los avisos sobre lo que no cubre (imágenes, tipografía y marca) están en [`NOTICE.md`](NOTICE.md).
 - Fotografías: Wikimedia Commons, con licencias CC BY 2.0, CC BY-SA 3.0, CC BY-SA 4.0 y dominio público. Lista completa en `creditos.html` y `CREDITOS.md`. Ninguna foto es de esta bodega.
 - Fuentes: Anton (Vernon Adams) y Work Sans (Wei Huang), SIL Open Font License 1.1. Licencia completa y avisos de copyright en `assets/fonts/OFL.txt`.
 
@@ -130,6 +130,6 @@ You can also open `index.html` straight in the browser; the headers are not appl
 
 ### Credits and licences
 
-- Code: MIT (see `LICENSE`).
+- Code: MIT (see `LICENSE`). Notices on what it does not cover (images, typeface and brand) are in [`NOTICE.md`](NOTICE.md).
 - Photographs: Wikimedia Commons, under CC BY 2.0, CC BY-SA 3.0, CC BY-SA 4.0 and public domain. Full list in `creditos.html` and `CREDITOS.md`. None of the photos shows this bodega.
 - Fonts: Anton (Vernon Adams) and Work Sans (Wei Huang), SIL Open Font License 1.1. Full licence and copyright notices in `assets/fonts/OFL.txt`.

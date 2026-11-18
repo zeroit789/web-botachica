@@ -121,6 +121,9 @@
     const setOpen = (open, returnFocus) => {
       nav.classList.toggle('is-open', open);
       toggle.setAttribute('aria-expanded', String(open));
+      // El botón dice lo que hará: «Cerrar» con el menú abierto, «Menú» con él cerrado
+      // The button says what it will do: "Cerrar" with the menu open, "Menú" when closed
+      toggle.textContent = open ? 'Cerrar' : 'Menú';
       setInert(open);
       if (open && links[0]) links[0].focus();
       if (!open && returnFocus) toggle.focus();
