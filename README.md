@@ -41,8 +41,8 @@ La idea de diseño es «el nombre como monumento»: BOTA CHICA en Anton a todo e
 Hace falta Node 18 o superior. El servidor solo usa módulos nativos y envía las mismas cabeceras que `_headers`:
 
 ```bash
-node server.js          # http://localhost:8080
-node server.js 3000     # otro puerto
+node server.js          # http://127.0.0.1:8080
+node server.js 3000     # otro puerto (solo escucha en 127.0.0.1)
 ```
 
 También se puede abrir `index.html` directamente en el navegador; en ese caso no se aplican las cabeceras.
@@ -106,8 +106,8 @@ The design idea is "the name as a monument": BOTA CHICA set in Anton across the 
 Node 18 or later. The server uses built-in modules only and sends the same headers as `_headers`:
 
 ```bash
-node server.js          # http://localhost:8080
-node server.js 3000     # another port
+node server.js          # http://127.0.0.1:8080
+node server.js 3000     # another port (listens on 127.0.0.1 only)
 ```
 
 You can also open `index.html` straight in the browser; the headers are not applied then.

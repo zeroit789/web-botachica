@@ -381,10 +381,13 @@ p { max-width: 62ch; text-wrap: pretty; }
   .mark { font-size: var(--fit); padding-bottom: 0.08em; }
   .hero .mark { --fit: calc((100vw - 2 * var(--margin)) / 2.02); line-height: 0.84; }
   .hero .mark__salto { display: block; }
-  .nav__toggle { display: inline-flex; align-items: center; }
-  .nav__list { display: none; position: absolute; right: 0; top: 3rem; flex-direction: column; gap: 0; background: var(--ink); min-width: 12rem; }
-  .nav.is-open .nav__list { display: flex; }
-  .nav__link { display: block; padding: 0.85rem 1.1rem; font-size: 1rem; color: var(--accent-ink); }
+  .js .nav__toggle { display: inline-flex; align-items: center; }
+  .js .nav__list { display: none; position: absolute; right: 0; top: 3rem; flex-direction: column; gap: 0; background: var(--ink); min-width: 12rem; }
+  .js .nav.is-open .nav__list { display: flex; }
+  .js .nav__link { display: block; padding: 0.85rem 1.1rem; font-size: 1rem; color: var(--accent-ink); }
+  /* Sin JavaScript los enlaces se quedan a la vista, en fila / Without JavaScript the links stay visible, in a row */
+  .nav__list { flex-wrap: wrap; justify-content: flex-end; gap: 0.25rem 1rem; }
+  .nav__link { display: inline-block; padding-block: 0.3rem; }
 
   .intro { min-height: 0; }
   .intro__head .big { font-size: 12vw; }
@@ -807,3 +810,15 @@ main#contenido { padding-bottom: var(--section); }
 /* Home navigation on a solid ground so it reads over any part of the photo */
 .hero .nav { background: var(--wood); padding: 0.35rem 1rem; }
 .hero .nav__link, .hero .nav__toggle { color: var(--on-wood); }
+
+/* Solera ocupada: controles atenuados y aviso de estado / Busy solera: dimmed controls and status note */
+.solera [aria-disabled="true"] { opacity: 0.55; cursor: progress; }
+.solera__estado { margin-top: 0.75rem; min-height: 1.45em; color: var(--on-wood); }
+
+/* Páginas de texto: una columna centrada, sin fotos al lado / Text pages: one centred column, no photos beside it */
+.prosa-pagina { display: block; }
+.prosa-pagina .prosa { margin-inline: auto; max-width: 46rem; }
+.prosa-pagina .prosa:has(.tabla--cred) { max-width: 72rem; }
+.prosa-pagina .prosa p { max-width: none; }
+/* Aviso del formulario sin JavaScript / No-JavaScript form note */
+.form__nojs { padding: 1rem; background: var(--surface); }

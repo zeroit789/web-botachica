@@ -65,7 +65,7 @@
     <section class="cab cab--contacto" aria-labelledby="titulo">
       <div class="cab__texto cab__texto--fila">
         <h1 class="display" id="titulo">Escríbenos para venir</h1>
-        <p class="cab__lead">Cuéntanos qué visita quieres, qué día y cuántos sois. Te contestamos en un día laborable con la hora confirmada.</p>
+        <p class="cab__lead">Cuéntanos qué visita quieres, qué día y cuántos sois. Es una web de demostración: el botón solo prepara un borrador de correo para una dirección de ejemplo.</p>
       </div>
     </section>
 
@@ -73,21 +73,21 @@
       <!-- ============ FORMULARIO (abre el correo, no envía nada) / FORM (opens mail, sends nothing) ============ -->
       <section class="contacto__form" aria-labelledby="t-form">
         <h2 class="head" id="t-form">Reserva o pregunta</h2>
-        <p class="small contacto__aviso" id="form-aviso">Esta web es una demostración: el formulario no envía ni guarda nada. Al pulsar el botón se abre tu programa de correo con el mensaje escrito, dirigido a una dirección de ejemplo.</p>
-        <form class="form" id="form-contacto" action="mailto:hola@botachica.example" method="post" enctype="text/plain" novalidate aria-describedby="form-aviso">
+        <p class="small contacto__aviso" id="form-aviso">Esta web es una demostración: el formulario no envía ni guarda nada. Al pulsar el botón se intenta abrir tu programa de correo con un borrador dirigido a una dirección de ejemplo; lo que escribas se queda aquí.</p>
+        <form class="form" id="form-contacto" data-to="hola@botachica.example" novalidate aria-describedby="form-aviso">
           <div class="campo">
             <label for="f-nombre">Nombre</label>
-            <input id="f-nombre" name="nombre" type="text" autocomplete="name" required aria-describedby="e-nombre">
+            <input id="f-nombre" type="text" autocomplete="name" required aria-describedby="e-nombre">
             <p class="campo__error" id="e-nombre" hidden>Escribe tu nombre.</p>
           </div>
           <div class="campo">
             <label for="f-correo">Correo electrónico</label>
-            <input id="f-correo" name="correo" type="email" autocomplete="email" required aria-describedby="e-correo">
+            <input id="f-correo" type="email" autocomplete="email" required aria-describedby="e-correo">
             <p class="campo__error" id="e-correo" hidden>Escribe un correo con el formato nombre@dominio.es.</p>
           </div>
           <div class="campo">
             <label for="f-motivo">Motivo</label>
-            <select id="f-motivo" name="motivo">
+            <select id="f-motivo">
               <option>Visita y fino</option>
               <option>Cata de cuatro</option>
               <option>Venencia en mano</option>
@@ -100,26 +100,27 @@
           <div class="campo-fila">
             <div class="campo">
               <label for="f-fecha">Día que prefieres</label>
-              <input id="f-fecha" name="fecha" type="date" aria-describedby="a-fecha">
+              <input id="f-fecha" type="date" aria-describedby="a-fecha">
               <p class="small campo__ayuda" id="a-fecha">De martes a sábado. Opcional.</p>
             </div>
             <div class="campo">
               <label for="f-personas">Personas</label>
-              <input id="f-personas" name="personas" type="number" min="1" max="40" value="2" inputmode="numeric" aria-describedby="e-personas">
+              <input id="f-personas" type="number" min="1" max="40" value="2" inputmode="numeric" aria-describedby="e-personas">
               <p class="campo__error" id="e-personas" hidden>Pon un número entre 1 y 40.</p>
             </div>
           </div>
           <div class="campo">
             <label for="f-mensaje">Mensaje</label>
-            <textarea id="f-mensaje" name="mensaje" rows="5" required aria-describedby="e-mensaje"></textarea>
+            <textarea id="f-mensaje" rows="5" required aria-describedby="e-mensaje"></textarea>
             <p class="campo__error" id="e-mensaje" hidden>Escribe unas palabras sobre lo que necesitas.</p>
           </div>
           <div class="campo campo--check">
-            <input id="f-edad" name="edad" type="checkbox" required aria-describedby="e-edad">
+            <input id="f-edad" type="checkbox" required aria-describedby="e-edad">
             <label for="f-edad">Quienes vayan a catar tienen 18 años o más.</label>
             <p class="campo__error" id="e-edad" hidden>Marca la casilla: las catas son solo para mayores de edad.</p>
           </div>
-          <button class="button" type="submit">Preparar el correo</button>
+          <button class="button" type="submit" disabled>Preparar el correo</button>
+          <noscript><p class="form__nojs">Sin JavaScript el botón no hace nada. Puedes escribir directamente a <a class="link link--en-texto" href="mailto:hola@botachica.example">hola@botachica.example</a> (dirección de ejemplo).</p></noscript>
           <p class="form__estado" id="form-estado" role="status" aria-live="polite"></p>
         </form>
       </section>

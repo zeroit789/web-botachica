@@ -81,25 +81,42 @@
 
   /* ---------- 3. Menú del móvil ---------- */
   /* ---------- 3. Phone menu ---------- */
+  // Sin script los enlaces se ven siempre; el CSS solo los pliega bajo html.js
+  // Without script the links are always visible; the CSS only folds them under html.js
   const nav = document.querySelector('.nav');
   const toggle = document.querySelector('.nav__toggle');
   if (nav && toggle) {
     const links = [...nav.querySelectorAll('.nav__link')];
+    const phone = window.matchMedia('(max-width: 47.99em)');
+    let inerted = [];
+    // Vuelve inerte todo lo que no es el menú, subiendo de la navegación al body
+    // Makes everything except the menu inert, walking up from the nav to the body
+    const setInert = (on) => {
+      inerted.forEach((el) => { el.inert = false; });
+      inerted = [];
+      if (!on) return;
+      for (let node = nav; node && node !== document.body; node = node.parentElement) {
+        for (const sib of node.parentElement.children) {
+          if (sib !== node && !sib.inert && sib.tagName !== 'SCRIPT') { sib.inert = true; inerted.push(sib); }
+        }
+      }
+    };
+    const isOpen = () => nav.classList.contains('is-open');
     // Abre o cierra la lista; al abrir, el foco pasa al primer enlace
     // Opens or closes the list; on open, focus moves to the first link
     const setOpen = (open, returnFocus) => {
       nav.classList.toggle('is-open', open);
       toggle.setAttribute('aria-expanded', String(open));
+      setInert(open);
       if (open && links[0]) links[0].focus();
       if (!open && returnFocus) toggle.focus();
     };
-    const isOpen = () => nav.classList.contains('is-open');
     toggle.addEventListener('click', () => setOpen(!isOpen(), false));
     links.forEach((a) => a.addEventListener('click', () => setOpen(false, false)));
-    // Escape cierra y devuelve el foco; Tab no sale del menú abierto
-    // Escape closes and returns focus; Tab stays inside the open menu
+    // Escape cierra y devuelve el foco; Tab no sale del menú abierto (solo en el móvil)
+    // Escape closes and returns focus; Tab stays inside the open menu (phone only)
     document.addEventListener('keydown', (e) => {
-      if (!isOpen()) return;
+      if (!isOpen() || !phone.matches) return;
       if (e.key === 'Escape') { e.preventDefault(); setOpen(false, true); return; }
       if (e.key !== 'Tab') return;
       const items = [toggle, ...links];
@@ -109,13 +126,17 @@
     });
     // Un clic fuera del menú lo cierra / A click outside the menu closes it
     document.addEventListener('click', (e) => { if (isOpen() && !nav.contains(e.target)) setOpen(false, false); });
+    // Al pasar a escritorio con el menú abierto, se cierra y se suelta el foco
+    // When moving to desktop with the menu open, it closes and focus is released
+    phone.addEventListener('change', () => { if (!phone.matches && isOpen()) setOpen(false, false); });
   }
 
-  /* ---------- 3b. Formulario de contacto: valida y abre el correo ---------- */
-  /* ---------- 3b. Contact form: validates and opens the mail client ---------- */
+  /* ---------- 3b. Formulario de contacto: valida y prepara un borrador de correo ---------- */
+  /* ---------- 3b. Contact form: validates and prepares a mail draft ---------- */
   const form = document.getElementById('form-contacto');
   if (form) {
     const estado = document.getElementById('form-estado');
+    const enviar = form.querySelector('button[type="submit"]');
     // Comprueba un campo y muestra o esconde su error / Checks one field and shows or hides its error
     const check = (input) => {
       const error = document.getElementById('e-' + input.id.slice(2));
@@ -135,7 +156,8 @@
         bad[0].focus();
         return;
       }
-      // Monta el correo con lo escrito / Builds the mail with what was written
+      // Monta el borrador con lo escrito; los datos se quedan en el formulario
+      // Builds the draft with what was written; the data stays in the form
       const v = (id) => document.getElementById(id).value.trim();
       const body = [
         `Nombre: ${v('f-nombre')}`,
@@ -146,12 +168,13 @@
         '',
         v('f-mensaje'),
       ].join('\n');
-      const to = form.getAttribute('action').replace('mailto:', '');
-      window.location.href = `mailto:${to}?subject=${encodeURIComponent('Reserva: ' + v('f-motivo'))}&body=${encodeURIComponent(body)}`;
-      estado.textContent = 'Listo: se ha abierto tu programa de correo con el mensaje escrito. Recuerda que esta web es una demostración y la dirección es de ejemplo, así que nadie lo recibirá.';
-      form.reset();
-      fields.forEach((f) => { f.removeAttribute('aria-invalid'); });
+      const to = form.dataset.to;
+      window.location.href = `mailto:${to}?subject=${encodeURIComponent('Consulta: ' + v('f-motivo'))}&body=${encodeURIComponent(body)}`;
+      estado.textContent = `Hemos intentado abrir tu programa de correo con un borrador del mensaje. Si no se ha abierto, tu texto sigue aquí y puedes copiarlo. Es una web de demostración y ${to} es una dirección de ejemplo: nadie lo recibirá.`;
     });
+    // El botón sale desactivado en el HTML y solo se activa con el manejador ya puesto
+    // The button ships disabled in the HTML and is only enabled once the handler is in place
+    if (enviar) enviar.disabled = false;
   }
 
   /* ---------- 4. Pestañas de vinos con su marca de tiza ---------- */
@@ -160,6 +183,7 @@
   const panels = [...document.querySelectorAll('.vino-panel')];
   const marks = [...document.querySelectorAll('.tiza__marca')];
   const markText = document.querySelector('[data-marca-texto]');
+  let markFrame = 0;
 
   // Muestra un vino: pestaña, ficha, marca y pie de foto / Shows one wine: tab, sheet, mark and caption
   function showWine(key, focus) {
@@ -178,9 +202,18 @@
       }
     });
     // La marca se borra y se vuelve a trazar / The mark is wiped and drawn again
+    // Si había un trazo pendiente de otra pestaña, se cancela / A pending stroke from another tab is cancelled
+    if (markFrame) cancelAnimationFrame(markFrame);
     marks.forEach((m) => m.classList.remove('is-on'));
     const mark = marks.find((m) => m.dataset.marca === key);
-    if (mark) requestAnimationFrame(() => requestAnimationFrame(() => mark.classList.add('is-on')));
+    if (!mark) return;
+    markFrame = requestAnimationFrame(() => {
+      markFrame = requestAnimationFrame(() => {
+        markFrame = 0;
+        // Solo se dibuja si esa pestaña sigue elegida / Only drawn if that tab is still selected
+        if (tabs.some((t) => t.dataset.tab === key && t.getAttribute('aria-selected') === 'true')) mark.classList.add('is-on');
+      });
+    });
   }
   if (tabs.length) {
     panels.forEach((p) => { p.hidden = p.dataset.panel !== 'fino'; });
@@ -292,11 +325,22 @@
   const wait = (ms) => new Promise((r) => setTimeout(r, reduce ? 0 : ms));
 
   let busy = false;
+  // Aviso de estado bajo los controles / Status note under the controls
+  const controls = document.querySelector('.solera__controls');
+  const statusNote = document.createElement('p');
+  statusNote.className = 'small solera__estado';
+  statusNote.setAttribute('role', 'status');
+  if (controls) controls.after(statusNote);
+  // Marca los controles como ocupados sin quitarles el foco / Marks controls busy without taking their focus
+  function setBusy(on) {
+    busy = on;
+    [sacaBtn, resetBtn, ...wineBtns].forEach((b) => { if (b) b.setAttribute('aria-disabled', String(on)); });
+    statusNote.textContent = on ? 'Saca en curso: la solera baja y se rocía desde la andana de arriba.' : '';
+  }
   // Animación completa de una saca, de abajo arriba / Full animation of one draw, bottom to top
   async function playSaca() {
     if (busy) return;
-    busy = true;
-    sacaBtn.disabled = true;
+    setBusy(true);
     const drop = FULL_DROP * WINES[state.wine];
     document.querySelectorAll('.lecturas dd').forEach((d) => d.classList.add('is-changing'));
     pour(0); setLevel(0, drop);
@@ -311,8 +355,7 @@
     state.year += 1;
     render();
     document.querySelectorAll('.lecturas dd').forEach((d) => d.classList.remove('is-changing'));
-    sacaBtn.disabled = false;
-    busy = false;
+    setBusy(false);
   }
 
   // Cambia de vino o vuelve a hoy / Switches wine or goes back to today
